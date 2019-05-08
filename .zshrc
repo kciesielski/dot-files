@@ -19,7 +19,7 @@ zplug "zsh-users/zsh-history-substring-search", defer:3, on:""
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/common-aliases",   from:oh-my-zsh
 
-zplug "themes/robbyrussell", from:oh-my-zsh
+zplug "themes/robbyrussell", from:oh-my-zsh, as:theme
 
 alias ls="ls --color"
 alias ll="ls -l --color"
