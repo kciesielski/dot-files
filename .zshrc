@@ -37,31 +37,21 @@ zplug "modules/history", from:prezto
 alias ls="ls --color"
 alias ll="ls -l --color"
 alias la="ls -a --color"
+alias bfg9k="docker system prune --force --all --volume"
 zplug "dbkaplun/smart-cd" # automatic ls in dirs, git status in repos
 
-zplug "stedolan/jq", \
-    from:gh-r, \
-    as:command, \
-    rename-to:jq, \
-    use:"jq-linux64", \
-    if:"[[ $OSTYPE == *linux* ]]"
-
-zplug "plugins/kubectl", from:oh-my-zsh, defer:2
-zplug "bonnefoa/kubectl-fzf", defer:3
+#zplug "plugins/kubectl", from:oh-my-zsh, defer:2
+#zplug "bonnefoa/kubectl-fzf", defer:3
 
 export NVM_LAZY_LOAD=true
 zplug "lukechilds/zsh-nvm"
 zplug "cswl/zsh-rbenv"
 zplug "nobeans/zsh-sdkman"
-zplug "superbrothers/zsh-kubectl-prompt"
+#zplug "superbrothers/zsh-kubectl-prompt"
 
 zplug "changyuheng/fz", defer:1
 zplug "rupa/z", use:z.sh
 
-zplug "ahmetb/kubectx", \
-	from:gh-r, \
-    as:command, \
-    use:'(*).sh'
 
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "junegunn/fzf", from:github, use:"shell/completion.zsh"
@@ -91,7 +81,7 @@ select-word-style bash
 
 
 zplug load
-RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+RPROMPT='%{$fg[blue]%}%{$reset_color%}'
 
 export FZF_CTRL_T_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export FZF_CTRL_T_COMMAND="fdd -I --type file"
@@ -101,3 +91,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/kc/.sdkman"
+[[ -s "/home/kc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kc/.sdkman/bin/sdkman-init.sh"
