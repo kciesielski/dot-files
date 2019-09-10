@@ -30,10 +30,11 @@ zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 
 zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "dracula/zsh", as:theme
 
 zplug "modules/history", from:prezto
 
+alias cdh="cd ~"
 alias ls="ls --color"
 alias ll="ls -l --color"
 alias la="ls -a --color"
