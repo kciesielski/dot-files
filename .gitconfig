@@ -1,19 +1,15 @@
 [user]
-	name = ghostbuster91
-	email = kghost0@gmail.com
+	name = Krzysiek Ciesielski
+	email = kciesielski@users.noreply.github.com
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
-	autocrlf = input
-	hookspath = ~/.git-hooks
+       excludesfile = ~/.gitignore_global
+       editor = vim
+       autocrlf = input
+       hookspath = ~/.git-hooks
     pager = diff-so-fancy | less -FXRi
 [push]
-	default = simple
+       default = simple
 [pull]
-	rebase = true
+       rebase = true
 [help]
-	autocorrect = 8
-[commit]
-	template = ~/.git-commit-msg-template
-[alias]
-	gone = !bash ~/bin/git-gone.sh
+       autocorrect = 8
