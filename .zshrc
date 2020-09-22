@@ -28,7 +28,7 @@ zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
-
+zplug "direnv/direnv", as:command, rename-to:direnv, use:"direnv", hook-build:"make"
 zplug "mafredri/zsh-async", from:github
 zplug "dracula/zsh", as:theme
 
@@ -95,4 +95,5 @@ bindkey '^x^e' edit-command-line
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/kc/.sdkman"
+python3 ~/simplingo.py
 [[ -s "/home/kc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kc/.sdkman/bin/sdkman-init.sh"
