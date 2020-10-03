@@ -28,7 +28,8 @@ zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
-zplug "direnv/direnv", as:command, rename-to:direnv, use:"direnv", hook-build:"make"
+zplug "direnv/direnv", from:oh-my-zsh
+zplug "plugins/dotenv",                    from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
 zplug "dracula/zsh", as:theme
 
@@ -38,7 +39,7 @@ alias cdh="cd ~"
 alias ls="ls --color"
 alias ll="ls -l --color"
 alias la="ls -a --color"
-alias bfg9k="docker system prune --force --all --volume"
+alias bfg9k="docker stop $(docker ps -aq); docker volume prune --force; docker system prune --force --all"
 zplug "dbkaplun/smart-cd" # automatic ls in dirs, git status in repos
 
 #zplug "plugins/kubectl", from:oh-my-zsh, defer:2
@@ -92,6 +93,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
+eval "$(direnv hook zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/kc/.sdkman"
