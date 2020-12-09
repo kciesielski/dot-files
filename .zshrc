@@ -49,7 +49,7 @@ zplug "dbkaplun/smart-cd" # automatic ls in dirs, git status in repos
 
 export NVM_LAZY_LOAD=true
 zplug "lukechilds/zsh-nvm"
-zplug "cswl/zsh-rbenv"
+#zplug "cswl/zsh-rbenv"
 zplug "nobeans/zsh-sdkman"
 #zplug "superbrothers/zsh-kubectl-prompt"
 
