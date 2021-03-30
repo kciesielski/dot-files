@@ -13,3 +13,6 @@
        rebase = true
 [help]
        autocorrect = 8
+[filesystem "AdoptOpenJDK|11.0.9.1|/dev/mapper/data_WCvZ0-root"]
+	timestampResolution = 5000 nanoseconds
+	minRacyThreshold = 6310 microseconds

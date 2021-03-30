@@ -39,8 +39,8 @@ alias cdh="cd ~"
 alias ls="ls --color"
 alias ll="ls -l --color"
 alias la="ls -a --color"
-alias bfg9k="docker stop $(docker ps -aq); docker volume prune --force; docker system prune --force --all"
-alias bfg8k="docker stop $(docker ps -aq); docker rm $(docker ps -a -q); docker volume prune --force"
+alias bfg9k='docker stop $(docker ps -aq); docker volume prune --force; docker system prune --force --all'
+alias bfg8k='docker stop $(docker ps -aq); docker rm $(docker ps -a -q); docker volume prune --force'
 alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
 zplug "dbkaplun/smart-cd" # automatic ls in dirs, git status in repos
 
