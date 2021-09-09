@@ -8,12 +8,14 @@ if [[ ! -d $ZPLUG_HOME ]]; then
 fi
 
 source $ZPLUG_HOME/init.zsh
+export PATH="$PATH:/home/kc/.local/share/coursier/bin"
+export GRAALVM_HOME=/home/kc/dev-tools/graalvm-ce-java11-21.0.0.2
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug "b4b4r07/enhancd", use:init.sh
 export ENHANCD_FILTER=fzf
-
+alias cb='xclip -sel clip'
 zplug "zsh-users/zsh-completions",              defer:0
 zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
 zplug "zdharma/fast-syntax-highlighting",       defer:3, on:"zsh-users/zsh-autosuggestions"
@@ -101,3 +103,9 @@ eval "$(direnv hook zsh)"
 export SDKMAN_DIR="/home/kc/.sdkman"
 python3 ~/simplingo.py
 [[ -s "/home/kc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kc/.sdkman/bin/sdkman-init.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kc/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kc/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kc/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kc/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
