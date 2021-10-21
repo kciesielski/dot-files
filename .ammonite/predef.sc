@@ -1,0 +1,1 @@
+/home/kc/ammonite-predef/predef.sc
