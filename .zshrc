@@ -16,7 +16,7 @@ export ENHANCD_FILTER=fzf
 
 zplug "zsh-users/zsh-completions",              defer:0
 zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
-zplug "zdharma/fast-syntax-highlighting",       defer:3, on:"zsh-users/zsh-autosuggestions"
+#zplug "zdharma/fast-syntax-highlighting",       defer:3, on:"zsh-users/zsh-autosuggestions"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 
@@ -36,9 +36,9 @@ zplug "dracula/zsh", as:theme
 zplug "modules/history", from:prezto
 
 alias cdh="cd ~"
-alias ls="ls --color"
-alias ll="ls -l --color"
-alias la="ls -a --color"
+alias ls="ls -G"
+alias ll="ls -l -G"
+alias la="ls -a -G"
 alias bfg9k="docker stop $(docker ps -aq); docker volume prune --force; docker system prune --force --all"
 alias bfg8k="docker stop $(docker ps -aq); docker rm $(docker ps -a -q); docker volume prune --force"
 alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
@@ -62,7 +62,7 @@ zplug "junegunn/fzf", from:github, use:"shell/completion.zsh"
 zplug "junegunn/fzf", from:github, use:"shell/key-bindings.zsh"
 zplug "sharkdp/fd", as:command, from:gh-r, rename-to:fdd
 
-zplug "zdharma/zsh-diff-so-fancy", as:command, use:bin/git-dsf
+#zplug "zdharma/zsh-diff-so-fancy", as:command, use:"bin/"
 zplug 'wfxr/forgit', defer:1
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug 'b4b4r07/copy', as:command, use:'(*).sh', rename-to:'$1'
