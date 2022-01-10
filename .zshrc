@@ -15,6 +15,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug "b4b4r07/enhancd", use:init.sh
 export ENHANCD_FILTER=fzf
+
 alias cb='xclip -sel clip'
 zplug "zsh-users/zsh-completions",              defer:0
 zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
@@ -23,7 +24,6 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/common-aliases",   from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
@@ -38,9 +38,6 @@ zplug "dracula/zsh", as:theme
 zplug "modules/history", from:prezto
 
 alias cdh="cd ~"
-alias ls="ls --color"
-alias ll="ls -l --color"
-alias la="ls -a --color"
 alias bfg9k='docker stop $(docker ps -aq); docker volume prune --force; docker system prune --force --all'
 alias bfg8k='docker stop $(docker ps -aq); docker rm $(docker ps -a -q); docker volume prune --force'
 alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
@@ -59,15 +56,45 @@ zplug "changyuheng/fz", defer:1
 zplug "rupa/z", use:z.sh
 
 
+zplug 'wfxr/forgit', defer:1
+zplug "MichaelAquilina/zsh-you-should-use"
+zplug 'b4b4r07/copy', as:command, use:'(*).sh', rename-to:'$1'
+
+# Awesome console tools
+zplug "sharkdp/bat", as:command, from:gh-r, rename-to:bat
+zplug "antonmedv/fx", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fx
+zplug "bootandy/dust", \
+    from:gh-r, \
+    as:command, \
+    rename-to:dust
+zplug "dalance/procs", \
+    from:gh-r, \
+    as:command, \
+    use:"*-lnx.zip", \  # works only on linux, use -mac for osx
+    rename-to:procs
+
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "junegunn/fzf", from:github, use:"shell/completion.zsh"
 zplug "junegunn/fzf", from:github, use:"shell/key-bindings.zsh"
 zplug "sharkdp/fd", as:command, from:gh-r, rename-to:fdd
-
 zplug "zdharma/zsh-diff-so-fancy", as:command, use:bin/git-dsf
-zplug 'wfxr/forgit', defer:1
-zplug "MichaelAquilina/zsh-you-should-use"
-zplug 'b4b4r07/copy', as:command, use:'(*).sh', rename-to:'$1'
+zplug "ptavares/zsh-exa"
+
+
+# exa
+alias ls='exa'                                                         # ls
+alias l='exa -lbF --git'                                               # list, size, type, git
+alias ll='exa -lbGF --git'                                             # long list
+alias llm='exa -lbGF --git --sort=modified'                            # long list, modified date sort
+alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
+alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
+alias lS='exa -1'			                                           # one column, just names
+alias lt='exa --tree --level=2'                                        # tree
+
+alias du='dust'
 
 # golang: initialize GOPATH
 export GOPATH=$HOME/go
@@ -109,3 +136,4 @@ if [ -f '/home/kc/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kc/D
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/kc/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kc/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(pyenv init -)"
