@@ -5,8 +5,8 @@
   fonts.fontconfig.enable = true;
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  # home.username = "kghost";
-  # home.homeDirectory = "/home/kghost";
+  # home.username = "kc";
+  # home.homeDirectory = "/home/kc";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -52,10 +52,8 @@
 
   imports = [
     ./programs/scala
-    ./programs/alacritty
     ./programs/tmux
     ./programs/zsh
-    ./programs/neovim
     ./programs/git
   ];
 
@@ -70,9 +68,7 @@
     ripgrep # better grep
 
     tree # display tree structure of directory
-    _1password # 1password cli
     jq # pretty-print json
-    hexyl # pretty-print hex
 
     # Files
     dua # disk usage analyzer
@@ -88,7 +84,6 @@
 
     # Media
     youtube-dl
-    imagemagick
 
     # Overview
     htop
@@ -96,7 +91,6 @@
 
     xsel # for tmux-yank
 
-    sublime
     gh
     tig
     statix # nix linter

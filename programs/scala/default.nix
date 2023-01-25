@@ -1,10 +1,9 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./bloop.nix ];
 
   home.packages = with pkgs; [
-    jdk11
+    jdk17
     scala
     ammonite
     scalafmt

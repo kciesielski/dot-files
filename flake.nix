@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of Kasper Kondzielski";
+  description = "Home Manager configuration of Krzysztof Ciesielski";
 
   inputs = {
     nix.url = "github:nixos/nix/2.11-maintenance";
@@ -18,7 +18,7 @@
   outputs = inputs @ { home-manager, nixpkgs, nixGL, ts-build, ... }:
     let
       system = "x86_64-linux";
-      username = "kghost";
+      username = "kc";
 
       overlays = import ./overlays {
         inherit nixGL ts-build;
