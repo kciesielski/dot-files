@@ -13,7 +13,7 @@
   ];
 
   home.sessionVariables = {
-    JAVA_HOME = "${pkgs.jdk}";
+    JAVA_HOME = "${pkgs.jdk17}";
     JVM_DEBUG =
       "-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005";
   };
