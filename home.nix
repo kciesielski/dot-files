@@ -46,12 +46,12 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
+    EDITOR = "vim";
   };
 
   imports = [
     ./programs/scala
+    ./programs/vscode
     ./programs/tmux
     ./programs/zsh
     ./programs/git
