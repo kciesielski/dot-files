@@ -94,6 +94,9 @@
     gh
     tig
     statix # nix linter
+
+    kubectl
+    telepresence
   ];
 
   programs = {
