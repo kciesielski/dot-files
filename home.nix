@@ -96,7 +96,6 @@
     statix # nix linter
 
     kubectl
-    telepresence
   ];
 
   programs = {
