@@ -96,6 +96,10 @@
     statix # nix linter
 
     kubectl
+
+    # gnome stuff
+    guake
+    flameshot
   ];
 
   programs = {
