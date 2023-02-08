@@ -9,19 +9,19 @@
       window = {
         dimensions = {
           columns = 140;
-          lines = 60;
+          lines = 47;
         };
       };
       font = {
-        size = 10;
+        size = 11;
 
         normal.family = "Hack Nerd Font";
         normal.style = "Regular";
-        bold.family = "JetBrains Mono Nerd Font";
+        bold.family = "Hack Nerd Font";
         bold.style = "Bold";
-        italic.family = "JetBrains Mono Nerd Font";
+        italic.family = "Hack Nerd Font";
         italic.style = "Italic";
-        bold_italic.family = "JetBrains Mono Nerd Font";
+        bold_italic.family = "Hack Nerd Font";
         bold_italic.style = "Bold Italic";
       };
       colors = {
