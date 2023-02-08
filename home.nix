@@ -99,7 +99,6 @@
     kubectl
 
     # gnome stuff
-    guake
     flameshot
   ];
 
@@ -152,7 +151,7 @@
         {
           binding = "<Print>";
           command = "flameshot gui";
-          name = "flameshot";
+          name = "flameshot screenshot";
         };
     };
   };
