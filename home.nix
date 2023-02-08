@@ -58,7 +58,7 @@
   ];
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
     diff-so-fancy # pretty diffs
     git-gone # get rid of orphan local branches
     bat # better cat
