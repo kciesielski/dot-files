@@ -149,7 +149,7 @@
         };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
         {
-          binding = "<Print>";
+          binding = "Print";
           command = "flameshot gui";
           name = "flameshot screenshot";
         };
