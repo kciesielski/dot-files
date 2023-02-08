@@ -51,6 +51,7 @@
 
   imports = [
     ./programs/scala
+    ./programs/alacritty
     ./programs/vscode
     ./programs/tmux
     ./programs/zsh
@@ -138,6 +139,7 @@
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -145,6 +147,12 @@
           binding = "<Primary><Alt>f";
           command = "alacritty";
           name = "open-terminal";
+        };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+        {
+          binding = "<Print>";
+          command = "flameshot gui";
+          name = "flameshot";
         };
     };
   };
@@ -154,7 +162,7 @@
     latitude = "52.2370";
     longitude = "21.0175";
     temperature.night = 3000;
-    temperature.day = 5000;
+    temperature.day = 3000;
   };
 
   services.unclutter = {
