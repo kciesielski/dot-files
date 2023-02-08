@@ -6,6 +6,12 @@
       env = {
         ZSH_TMUX_AUTOSTART = "true";
       };
+      window = {
+        dimensions = {
+          columns = 140;
+          lines = 60;
+        };
+      };
       font = {
         size = 12;
 
