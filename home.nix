@@ -70,7 +70,7 @@
 
     tree # display tree structure of directory
     jq # pretty-print json
-
+    k9s
     # Files
     dua # disk usage analyzer
 
@@ -81,7 +81,6 @@
     nix-tree
     nixfmt
     nix-prefetch
-    nurl
 
     # Media
     youtube-dl

@@ -1,6 +1,6 @@
 # dot-files
 
-Install nix:
+Install nix in multi-user mode:
 https://nixos.org/manual/nix/stable/installation/installing-binary.html#multi-user-installation
 
 Configure:
@@ -14,7 +14,12 @@ Building for the first time:
 nix build .#homeConfigurations.kc.activationPackage
 result/activate
 ```
+
 After that configurations can be switched using:
 ```sh
 home-manager switch --flake path:/home/kc/workspace/dot-files
 ```
+
+To update nixpkgs, use `nix flake lock --update-input nixpkgs`
+To update all, use `nix flake lock --update-all`
+After updating nixpkgs, use `home-manager switch ...` to apply updates
