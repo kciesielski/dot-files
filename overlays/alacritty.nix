@@ -14,4 +14,3 @@ pkgs.symlinkJoin {
     pkgs.alacritty
   ];
 }
-

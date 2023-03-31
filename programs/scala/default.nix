@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
 
   home.packages = with pkgs; [
@@ -20,12 +19,14 @@
 
   programs.sbt = {
     enable = false;
-    plugins = let
-      projectGraph = {
-        org = "com.dwijnand";
-        artifact = "sbt-project-graph";
-        version = "0.4.0";
-      };
-    in [ projectGraph ];
+    plugins =
+      let
+        projectGraph = {
+          org = "com.dwijnand";
+          artifact = "sbt-project-graph";
+          version = "0.4.0";
+        };
+      in
+      [ projectGraph ];
   };
 }

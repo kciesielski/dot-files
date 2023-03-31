@@ -39,6 +39,11 @@
     version = 2;
   };
 
+  home.file."./.config/nvim/" = {
+    source = ./programs/nvim;
+    recursive = true;
+  };
+
   nix.package = inputs.nix.packages.${pkgs.system}.nix;
   nix.settings.nix-path = [
     "nixpkgs=${inputs.nixpkgs}"
@@ -76,6 +81,8 @@
 
     # Files
     dua # disk usage analyzer
+
+    neovim
 
     # nix stuff
     nix-du
