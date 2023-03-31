@@ -70,7 +70,10 @@
 
     tree # display tree structure of directory
     jq # pretty-print json
-    k9s
+
+    k9s # Kubernetes
+    ctop # Like k9s but for Docker
+
     # Files
     dua # disk usage analyzer
 
