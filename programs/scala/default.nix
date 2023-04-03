@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  imports = [ ./bloop.nix ];
 
   home.packages = with pkgs; [
     jdk17
