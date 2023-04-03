@@ -24,7 +24,6 @@ local on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr, desc = desc }
         map(mode, l, r, opts)
     end
-
     -- Mappings.
 
     mapB("n", "<leader>rn", lsp.buf.rename, "lsp rename")
@@ -61,7 +60,11 @@ end
 
 return {
     { 'lukas-reineke/indent-blankline.nvim' },
-    { 'windwp/nvim-autopairs' },
+    { 'windwp/nvim-autopairs',
+	config = function()
+		require('nvim-autopairs').setup()
+	end,
+    },
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'neovim/nvim-lspconfig' },
     { 'folke/which-key.nvim',
@@ -182,7 +185,7 @@ return {
 		    }
 		}
 	end,
-	keys = { "<leader>n", ":Neogit" }
+	keys = { { "<leader>99", "<cmd>Neogit<cr>" } }
     }
 
 
