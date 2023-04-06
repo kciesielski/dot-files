@@ -109,6 +109,8 @@
 
     # gnome stuff
     flameshot
+    gnomeExtensions.paperwm
+    gnome3.gnome-tweaks
   ];
 
   programs = {
