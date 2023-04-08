@@ -1,5 +1,5 @@
 return {
-    { 'nvim-lua/plenary.nvim' },
+    { 'nvim-lua/plenary.nvim', lazy = false },
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'AckslD/nvim-neoclip.lua', ------- clipboard
         requires = {
@@ -12,6 +12,7 @@ return {
         "nvim-telescope/telescope.nvim",
         keys = {
             { "<leader>tf", "<cmd>Telescope find_files<cr>" },
+            { "<leader>tr", "<cmd>Telescope oldfiles<cr>" },
             { "<leader>tg", "<cmd>Telescope live_grep<cr>" },
             { "<leader>th", "<cmd>Telescope buffers<cr>" },
             { "<leader>/", "<cmd>Telescope commands<cr>" },

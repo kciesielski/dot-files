@@ -10,7 +10,6 @@ global_opt.clipboard = "unnamed"
 global_opt.timeoutlen = 200
 
 return {
-  "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" }
+  { "folke/neoconf.nvim", cmd = "Neoconf", lazy = false }
 }
 

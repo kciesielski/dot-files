@@ -17,6 +17,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 -- end special settings for nvim-tree
 
+local telescope_builtin = require('telescope.builtin')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -24,6 +25,7 @@ local on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr, desc = desc }
         map(mode, l, r, opts)
     end
+
     -- Mappings.
 
     mapB("n", "<leader>rn", lsp.buf.rename, "lsp rename")
@@ -68,9 +70,11 @@ return {
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'neovim/nvim-lspconfig' },
     { 'folke/which-key.nvim',
+    	lazy = false,
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
+	    require('which-key').setup()
         end,
     },
     { 'jose-elias-alvarez/null-ls.nvim',
@@ -186,7 +190,150 @@ return {
 		}
 	end,
 	keys = { { "<leader>99", "<cmd>Neogit<cr>" } }
+    },
+
+	{ "hrsh7th/nvim-cmp",
+	lazy = false,
+		opts = function()
+  local cmp = require("cmp")
+  return {
+    completion = {
+      completeopt = "menu,menuone,noinsert",
+    },
+    snippet = {
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+      ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ["<S-CR>"] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "buffer" },
+      { name = "path" },
+    }),
+    formatting = {
+      format = function(_, item)
+        local icons = require("lazyvim.config").icons.kinds
+        if icons[item.kind] then
+          item.kind = icons[item.kind] .. item.kind
+        end
+        return item
+      end,
+    },
+    experimental = {
+      ghost_text = {
+        hl_group = "LspCodeLens",
+      },
+    },
+  }
+end
+	},
+	{ "nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		opts = {
+  highlight = { enable = true },
+  indent = { enable = true, disable = { "python" } },
+  context_commentstring = { enable = true, enable_autocmd = false },
+  ensure_installed = {
+    "bash",
+    "c",
+    "help",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "luap",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "query",
+    "regex",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+    "comment",
+    "nix",
+    "java",
+    "hocon",
+    "sql",
+    "graphql",
+    "dockerfile",
+    "scala",
+    "go",
+    "elixir"
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-space>",
+      node_incremental = "<C-space>",
+      scope_incremental = "<nop>",
+      node_decremental = "<bs>",
+    },
+  },
+}
+	},
+	{ "scalameta/nvim-metals", lazy = false,
+	config = function()
+
+local metals = require("metals")
+local metals_config = metals.bare_config()
+metals_config.init_options.statusBarProvider = "on"
+metals_config.capabilities = capabilities
+metals_config.on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    map("v", "K", metals.type_of_range)
+    map("n", "<leader>cc", function()
+        telescope.extensions.coursier.complete()
+    end, { desc = "coursier complete" })
+    map("n", "<leader>mc", function()
+        telescope.extensions.metals.commands()
+    end, { desc = "metals commands" })
+end
+
+metals_config.settings = {
+    metalsBinaryPath = metals_binary_path,
+    showImplicitArguments = true,
+    excludedPackages = {
+        "akka.actor.typed.javadsl",
+        "com.github.swagger.akka.javadsl"
     }
+}
+metals_config.handlers["textDocument/publishDiagnostics"] = lsp.with(
+    lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = {
+        prefix = '',
+    }
+}
+)
+-- Autocmd that will actually be in charging of starting the whole thing
+local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
+api.nvim_create_autocmd("FileType", {
+    -- NOTE: You may or may not want java included here. You will need it if you
+    -- want basic Java support but it may also conflict if you are using
+    -- something like nvim-jdtls which also works on a java filetype autocmd.
+    pattern = { "scala", "sbt", "java" },
+    callback = function()
+        metals.initialize_or_attach(metals_config)
+    end,
+    group = nvim_metals_group,
+})
+end,
+}
 
 
 }
