@@ -249,6 +249,22 @@
         "type": "github"
       }
     },
+    "p_nvim-early-retirement": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680773898,
+        "narHash": "sha256-wxELw5e1Gpn3/Vq93wCG5MeJBiK25KDX/+0RZZmEu4E=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-early-retirement",
+        "rev": "0ac9906e74e5e7e6e300ff5875c65e0aeb1d2436",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-early-retirement",
+        "type": "github"
+      }
+    },
     "p_nvim-leap": {
       "flake": false,
       "locked": {
@@ -329,6 +345,22 @@
         "type": "github"
       }
     },
+    "p_nvim-spider": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681060671,
+        "narHash": "sha256-Q1q32udPW1OFBxbdwLErdPRgAYlYMuICMG76IQgwu2o=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-spider",
+        "rev": "fcae87f8c73cc8624eacf6c5fd5de4d5e16ee0c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-spider",
+        "type": "github"
+      }
+    },
     "p_nvim-tmux-resize": {
       "flake": false,
       "locked": {
@@ -353,11 +385,13 @@
         "nixGL": "nixGL",
         "nixpkgs": "nixpkgs_3",
         "p_nvim-actions-preview": "p_nvim-actions-preview",
+        "p_nvim-early-retirement": "p_nvim-early-retirement",
         "p_nvim-leap": "p_nvim-leap",
         "p_nvim-lsp-inlayhints": "p_nvim-lsp-inlayhints",
         "p_nvim-metals": "p_nvim-metals",
         "p_nvim-next": "p_nvim-next",
         "p_nvim-portal": "p_nvim-portal",
+        "p_nvim-spider": "p_nvim-spider",
         "p_nvim-tmux-resize": "p_nvim-tmux-resize"
       }
     },

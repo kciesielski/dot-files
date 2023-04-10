@@ -70,21 +70,21 @@ map("n", '<leader>"', require("telescope").extensions.neoclip.star, { desc = "cl
 require("indent_blankline").setup()
 vim.g.indent_blankline_show_current_context = true
 vim.g.indent_blankline_context_patterns = {
-        "declaration", "expression", "pattern", "primary_expression",
-        "statement", "switch_body"
+    "declaration", "expression", "pattern", "primary_expression",
+    "statement", "switch_body"
 }
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local function single_click_edit(node)
-  vim.defer_fn(function ()
-    local win = vim.api.nvim_get_current_win()
-    local view = require "nvim-tree.view"
-    if view.get_winnr() ~= win then return end
-    local actions = require'nvim-tree.actions.dispatch'
-    actions.dispatch("edit")
-  end, 10)
+    vim.defer_fn(function()
+        local win = vim.api.nvim_get_current_win()
+        local view = require "nvim-tree.view"
+        if view.get_winnr() ~= win then return end
+        local actions = require 'nvim-tree.actions.dispatch'
+        actions.dispatch("edit")
+    end, 10)
 end
 
 require("nvim-tree").setup({
@@ -198,6 +198,16 @@ end)
 map("n", "]q", next_qf_item, { desc = "nvim-next: next qfix" })
 map("n", "[q", prev_qf_item, { desc = "nvim-next: prev qfix" })
 
+require("spider").setup({
+    skipInsignificantPunctuation = true
+})
+map("n", "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+map("n", "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+map("n", "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+map("n", "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+require("early-retirement").setup({
+    retirementAgeMins = 15
+})
 require("gitlinker").setup()
 require("auto-save").setup({
     trigger_events = { "BufLeave" }

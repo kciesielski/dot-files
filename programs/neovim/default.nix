@@ -230,6 +230,8 @@ in
           EOF
         '';
       }
+      p_nvim-spider
+      p_nvim-early-retirement
       p_nvim-lsp-inlayhints
     ];
   };
