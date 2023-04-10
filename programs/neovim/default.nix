@@ -55,6 +55,7 @@ in
           nnoremap <Leader>tf <cmd>Telescope find_files<cr>
           nnoremap <Leader>th <cmd>Telescope buffers<cr>
           nnoremap <Leader>gh <cmd>lua require('telescope.builtin').git_commits()<cr>
+          nnoremap <Leader>tr <cmd>Telescope registers<cr>
           lua << EOF
               vim.keymap.set("n", "<leader>hc", function()
                 require("telescope.builtin").git_bcommits()
