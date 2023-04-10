@@ -76,6 +76,7 @@ in
           nnoremap <silent> <A-Right> :TmuxNavigateRight<cr>
         '';
       }
+      auto-save-nvim
       which-key-nvim
       nvim-autopairs
       {
