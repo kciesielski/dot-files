@@ -68,13 +68,34 @@ require("telescope").load_extension("neoclip")
 map("n", '<leader>"', require("telescope").extensions.neoclip.star, { desc = "clipboard" })
 
 require("indent_blankline").setup()
+vim.g.indent_blankline_show_current_context = true
+vim.g.indent_blankline_context_patterns = {
+        "declaration", "expression", "pattern", "primary_expression",
+        "statement", "switch_body"
+}
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+local function single_click_edit(node)
+  vim.defer_fn(function ()
+    local win = vim.api.nvim_get_current_win()
+    local view = require "nvim-tree.view"
+    if view.get_winnr() ~= win then return end
+    local actions = require'nvim-tree.actions.dispatch'
+    actions.dispatch("edit")
+  end, 10)
+end
+
 require("nvim-tree").setup({
     view = {
         adaptive_size = true,
-    },
+        mappings = {
+            list = {
+                { key = "<LeftRelease>", action = "single_click_edit", action_cb = single_click_edit },
+            }
+        }
+    }
 })
 map("n", '<leader>et', function()
     require("nvim-tree.api").tree.toggle(true, true)
