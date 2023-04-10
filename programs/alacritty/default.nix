@@ -12,6 +12,14 @@
           lines = 47;
         };
       };
+      cursor = {
+        style = {
+          shape = "Beam";
+          blinking = "Always";
+        };
+        blink_interval = 300;
+        blink_timeout = 0;
+      };
       font = {
         size = 11;
 
