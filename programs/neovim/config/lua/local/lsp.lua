@@ -206,6 +206,7 @@ local setup = function(telescope, telescope_builtin, navic, next_integrations, t
         mapB("n", "<leader>mt", require("metals.tvp").toggle_tree_view, "metals: toggle tree view")
 
         mapB("n", "<leader>mr", require("metals.tvp").reveal_in_tree, "metals: reveal in tree")
+        mapB("n", "<leader>mo", require("metals").organize_imports, "metals: organize imports")
 
         mapB("n", "<leader>msi", function()
             require("metals").toggle_setting("showImplicitArguments")
