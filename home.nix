@@ -47,6 +47,7 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
   };
 
   imports = [
@@ -55,11 +56,12 @@
     ./programs/vscode
     ./programs/tmux
     ./programs/zsh
+    ./programs/neovim
     ./programs/git
   ];
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     diff-so-fancy # pretty diffs
     git-gone # get rid of orphan local branches
     bat # better cat
@@ -77,7 +79,6 @@
     # Files
     dua # disk usage analyzer
 
-    neovim
 
     # nix stuff
     nix-du
@@ -86,6 +87,7 @@
     nix-tree
     nixfmt
     nix-prefetch
+    nurl
 
     # Media
     youtube-dl
@@ -99,6 +101,7 @@
     gh
     tig
     statix # nix linter
+    nix-output-monitor
 
     kubectl
 

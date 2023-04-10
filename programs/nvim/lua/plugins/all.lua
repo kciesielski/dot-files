@@ -1,4 +1,3 @@
-
 -- globals
 local api = vim.api
 local cmd = vim.cmd
@@ -62,68 +61,72 @@ end
 
 return {
     { 'lukas-reineke/indent-blankline.nvim' },
-    { 'windwp/nvim-autopairs',
-	config = function()
-		require('nvim-autopairs').setup()
-	end,
+    {
+        'windwp/nvim-autopairs',
+        config = function()
+            require('nvim-autopairs').setup()
+        end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'neovim/nvim-lspconfig' },
-    { 'folke/which-key.nvim',
-    	lazy = false,
+    {
+        'folke/which-key.nvim',
+        lazy = false,
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-	    require('which-key').setup()
+            require('which-key').setup()
         end,
     },
-    { 'jose-elias-alvarez/null-ls.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-        local null_ls = require("null-ls")
-        null_ls.setup({
-        sources = {
-            null_ls.builtins.formatting.shfmt,
-            null_ls.builtins.formatting.prettier,
-            null_ls.builtins.diagnostics.eslint,
-            null_ls.builtins.code_actions.eslint,
-            null_ls.builtins.diagnostics.cspell.with({
-                -- Force the severity to be HINT
-                diagnostics_postprocess = function(diagnostic)
-                    diagnostic.severity = diag.severity.HINT
-                end,
-            }),
-            null_ls.builtins.code_actions.cspell,
-            null_ls.builtins.code_actions.statix,
-            null_ls.builtins.diagnostics.statix,
-        },
-        on_attach = function(client, bufnr)
-            local function mapB(mode, l, r, desc)
-                local opts = { noremap = true, silent = true, buffer = bufnr, desc = desc }
-                map(mode, l, r, opts)
-            end
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            local null_ls = require("null-ls")
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.formatting.shfmt,
+                    null_ls.builtins.formatting.prettier,
+                    null_ls.builtins.diagnostics.eslint,
+                    null_ls.builtins.code_actions.eslint,
+                    null_ls.builtins.diagnostics.cspell.with({
+                        -- Force the severity to be HINT
+                        diagnostics_postprocess = function(diagnostic)
+                            diagnostic.severity = diag.severity.HINT
+                        end,
+                    }),
+                    null_ls.builtins.code_actions.cspell,
+                    null_ls.builtins.code_actions.statix,
+                    null_ls.builtins.diagnostics.statix,
+                },
+                on_attach = function(client, bufnr)
+                    local function mapB(mode, l, r, desc)
+                        local opts = { noremap = true, silent = true, buffer = bufnr, desc = desc }
+                        map(mode, l, r, opts)
+                    end
 
-            -- local nndiag = next_integrations.diagnostic()
-            on_attach(client, bufnr)
-            -- mapB("n", "[s", nndiag.goto_prev({ wrap = false, severity = diag.severity.HINT }), "previous misspelled word")
-            -- mapB("n", "]s", nndiag.goto_next({ wrap = false, severity = diag.severity.HINT }), "next misspelled word")
-        end,
-        })
-        if not spell_check_enabled then
-            null_ls.disable({ name = "cspell" })
-        end
-        map("n", "<leader>ss", function()
-            if spell_check_enabled then
+                    -- local nndiag = next_integrations.diagnostic()
+                    on_attach(client, bufnr)
+                    -- mapB("n", "[s", nndiag.goto_prev({ wrap = false, severity = diag.severity.HINT }), "previous misspelled word")
+                    -- mapB("n", "]s", nndiag.goto_next({ wrap = false, severity = diag.severity.HINT }), "next misspelled word")
+                end,
+            })
+            if not spell_check_enabled then
                 null_ls.disable({ name = "cspell" })
-                spell_check_enabled = false
-            else
-                null_ls.enable({ name = "cspell" })
-                spell_check_enabled = true
             end
-        end, { desc = "toggle spell check", noremap = true })
-    end
+            map("n", "<leader>ss", function()
+                if spell_check_enabled then
+                    null_ls.disable({ name = "cspell" })
+                    spell_check_enabled = false
+                else
+                    null_ls.enable({ name = "cspell" })
+                    spell_check_enabled = true
+                end
+            end, { desc = "toggle spell check", noremap = true })
+        end
     },
-    { "lewis6991/gitsigns.nvim",
+    {
+        "lewis6991/gitsigns.nvim",
         lazy = false,
         config = function()
             require("gitsigns").setup({
@@ -160,7 +163,8 @@ return {
             })
         end,
     },
-    { "nvim-tree/nvim-tree.lua",
+    {
+        "nvim-tree/nvim-tree.lua",
         config = function()
             local nvim_tree = require("nvim-tree")
             nvim_tree.setup({
@@ -168,172 +172,177 @@ return {
                     adaptive_size = true,
                 },
             })
-            local opts = { noremap = true, silent = true}
+            local opts = { noremap = true, silent = true }
             map('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', { desc = "nvim tree toggle" }, opts)
         end,
         keys = { "<leader>tt" },
     },
     { "nvim-tree/nvim-web-devicons" },
-    { "sindrets/diffview.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" }
+    {
+        "sindrets/diffview.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" }
     },
     { "mbbill/undotree" },
-    { "TimUntersberger/neogit", 
-    dependencies = { 'sindrets/diffview.nvim' },
+    {
+        "TimUntersberger/neogit",
+        dependencies = { 'sindrets/diffview.nvim' },
         config = function()
-		local neogit = require('neogit')
-		neogit.setup {
-		    disable_commit_confirmation = true,
-		    integrations = {
-		        diffview = true
-		    }
-		}
-	end,
-	keys = { { "<leader>99", "<cmd>Neogit<cr>" } }
+            local neogit = require('neogit')
+            neogit.setup {
+                disable_commit_confirmation = true,
+                integrations = {
+                    diffview = true
+                }
+            }
+        end,
+        keys = { { "<leader>99", "<cmd>Neogit<cr>" } }
     },
 
-	{ "hrsh7th/nvim-cmp",
-	lazy = false,
-		opts = function()
-  local cmp = require("cmp")
-  return {
-    completion = {
-      completeopt = "menu,menuone,noinsert",
-    },
-    snippet = {
-      expand = function(args)
-        require("luasnip").lsp_expand(args.body)
-      end,
-    },
-    mapping = cmp.mapping.preset.insert({
-      ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-      ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      ["<S-CR>"] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "buffer" },
-      { name = "path" },
-    }),
-    formatting = {
-      format = function(_, item)
-        local icons = require("lazyvim.config").icons.kinds
-        if icons[item.kind] then
-          item.kind = icons[item.kind] .. item.kind
+    {
+        "hrsh7th/nvim-cmp",
+        lazy = false,
+        opts = function()
+            local cmp = require("cmp")
+            return {
+                completion = {
+                    completeopt = "menu,menuone,noinsert",
+                },
+                snippet = {
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end,
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                    ["<S-CR>"] = cmp.mapping.confirm({
+                        behavior = cmp.ConfirmBehavior.Replace,
+                        select = true,
+                    }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                }),
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "buffer" },
+                    { name = "path" },
+                }),
+                formatting = {
+                    format = function(_, item)
+                        local icons = require("lazyvim.config").icons.kinds
+                        if icons[item.kind] then
+                            item.kind = icons[item.kind] .. item.kind
+                        end
+                        return item
+                    end,
+                },
+                experimental = {
+                    ghost_text = {
+                        hl_group = "LspCodeLens",
+                    },
+                },
+            }
         end
-        return item
-      end,
     },
-    experimental = {
-      ghost_text = {
-        hl_group = "LspCodeLens",
-      },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        lazy = false,
+        opts = {
+            highlight = { enable = true },
+            indent = { enable = true, disable = { "python" } },
+            context_commentstring = { enable = true, enable_autocmd = false },
+            ensure_installed = {
+                "bash",
+                "c",
+                "help",
+                "html",
+                "javascript",
+                "json",
+                "lua",
+                "luap",
+                "markdown",
+                "markdown_inline",
+                "python",
+                "query",
+                "regex",
+                "tsx",
+                "typescript",
+                "vim",
+                "yaml",
+                "comment",
+                "nix",
+                "java",
+                "hocon",
+                "sql",
+                "graphql",
+                "dockerfile",
+                "scala",
+                "go",
+                "elixir"
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
+                    scope_incremental = "<nop>",
+                    node_decremental = "<bs>",
+                },
+            },
+        }
     },
-  }
-end
-	},
-	{ "nvim-treesitter/nvim-treesitter",
-		lazy = false,
-		opts = {
-  highlight = { enable = true },
-  indent = { enable = true, disable = { "python" } },
-  context_commentstring = { enable = true, enable_autocmd = false },
-  ensure_installed = {
-    "bash",
-    "c",
-    "help",
-    "html",
-    "javascript",
-    "json",
-    "lua",
-    "luap",
-    "markdown",
-    "markdown_inline",
-    "python",
-    "query",
-    "regex",
-    "tsx",
-    "typescript",
-    "vim",
-    "yaml",
-    "comment",
-    "nix",
-    "java",
-    "hocon",
-    "sql",
-    "graphql",
-    "dockerfile",
-    "scala",
-    "go",
-    "elixir"
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<C-space>",
-      node_incremental = "<C-space>",
-      scope_incremental = "<nop>",
-      node_decremental = "<bs>",
-    },
-  },
-}
-	},
-	{ "scalameta/nvim-metals", lazy = false,
-	config = function()
+    {
+        "scalameta/nvim-metals",
+        lazy = false,
+        config = function()
+            local metals = require("metals")
+            local metals_config = metals.bare_config()
+            metals_config.init_options.statusBarProvider = "on"
+//            metals_config.capabilities = capabilities
+            metals_config.on_attach = function(client, bufnr)
+                on_attach(client, bufnr)
+                map("v", "K", metals.type_of_range)
+                map("n", "<leader>cc", function()
+                    telescope.extensions.coursier.complete()
+                end, { desc = "coursier complete" })
+                map("n", "<leader>mc", function()
+                    telescope.extensions.metals.commands()
+                end, { desc = "metals commands" })
+            end
 
-local metals = require("metals")
-local metals_config = metals.bare_config()
-metals_config.init_options.statusBarProvider = "on"
-metals_config.capabilities = capabilities
-metals_config.on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    map("v", "K", metals.type_of_range)
-    map("n", "<leader>cc", function()
-        telescope.extensions.coursier.complete()
-    end, { desc = "coursier complete" })
-    map("n", "<leader>mc", function()
-        telescope.extensions.metals.commands()
-    end, { desc = "metals commands" })
-end
-
-metals_config.settings = {
-    metalsBinaryPath = metals_binary_path,
-    showImplicitArguments = true,
-    excludedPackages = {
-        "akka.actor.typed.javadsl",
-        "com.github.swagger.akka.javadsl"
+            metals_config.settings = {
+                metalsBinaryPath = metals_binary_path,
+                showImplicitArguments = true,
+                excludedPackages = {
+                    "akka.actor.typed.javadsl",
+                    "com.github.swagger.akka.javadsl"
+                }
+            }
+            metals_config.handlers["textDocument/publishDiagnostics"] = lsp.with(
+                lsp.diagnostic.on_publish_diagnostics, {
+                    virtual_text = {
+                        prefix = '',
+                    }
+                }
+            )
+            -- Autocmd that will actually be in charging of starting the whole thing
+            local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
+            api.nvim_create_autocmd("FileType", {
+                -- NOTE: You may or may not want java included here. You will need it if you
+                -- want basic Java support but it may also conflict if you are using
+                -- something like nvim-jdtls which also works on a java filetype autocmd.
+                pattern = { "scala", "sbt", "java" },
+                callback = function()
+                    metals.initialize_or_attach(metals_config)
+                end,
+                group = nvim_metals_group,
+            })
+        end,
     }
-}
-metals_config.handlers["textDocument/publishDiagnostics"] = lsp.with(
-    lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = {
-        prefix = '',
-    }
-}
-)
--- Autocmd that will actually be in charging of starting the whole thing
-local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
-api.nvim_create_autocmd("FileType", {
-    -- NOTE: You may or may not want java included here. You will need it if you
-    -- want basic Java support but it may also conflict if you are using
-    -- something like nvim-jdtls which also works on a java filetype autocmd.
-    pattern = { "scala", "sbt", "java" },
-    callback = function()
-        metals.initialize_or_attach(metals_config)
-    end,
-    group = nvim_metals_group,
-})
-end,
-}
 
 
 }

@@ -15,13 +15,13 @@
       font = {
         size = 11;
 
-        normal.family = "Hack Nerd Font";
+        normal.family = "JetBrains Mono Nerd Font";
         normal.style = "Regular";
-        bold.family = "Hack Nerd Font";
+        bold.family = "JetBrains Mono Nerd Font";
         bold.style = "Bold";
-        italic.family = "Hack Nerd Font";
+        italic.family = "JetBrains Mono Nerd Font";
         italic.style = "Italic";
-        bold_italic.family = "Hack Nerd Font";
+        bold_italic.family = "JetBrains Mono Nerd Font";
         bold_italic.style = "Bold Italic";
       };
       colors = {
