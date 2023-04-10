@@ -85,7 +85,7 @@ in
       }
       gitsigns-nvim
       plenary-nvim
-
+      oil-nvim
       # completions
       nvim-cmp
       cmp-nvim-lsp

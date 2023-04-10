@@ -104,6 +104,11 @@ map("n", '<leader>ef', function()
     require("nvim-tree.api").tree.find_file(false, true)
 end, { desc = "nvim_tree toggle" })
 
+require("oil").setup()
+map("n", '<leader>e-', function()
+    require("oil").open()
+end, { desc = "Open dir in oil" }
+)
 
 require("fidget").setup({
     debug = {
