@@ -284,7 +284,7 @@ local setup = function(telescope, telescope_builtin, navic, next_integrations, t
             "akka.actor.typed.javadsl",
             "com.github.swagger.akka.javadsl"
         },
-        enableSemanticHighlighting = false
+        enableSemanticHighlighting = true
     }
     metals_config.handlers["textDocument/publishDiagnostics"] = lsp.with(
         lsp.diagnostic.on_publish_diagnostics, {
