@@ -123,15 +123,23 @@ require("fidget").setup({
 
 require('nvim-lightbulb').setup({ autocmd = { enabled = true } })
 
--- local diffview_actions = next_integrations.diffview(require("diffview.actions"))
--- require("diffview").setup({
---     file_history_panel = {
---         keymaps = {
---             { "n", "[x", diffview_actions.prev_conflict, { desc = "In the merge-tool: jump to the previous conflict" } },
---             { "n", "]x", diffview_actions.next_conflict, { desc = "In the merge-tool: jump to the next conflict" } },
---         }
---     }
--- })
+local diffview_actions = next_integrations.diffview(require("diffview.actions"))
+require("diffview").setup({
+    file_history_panel = {
+        keymaps = {
+            { "n", "[x", diffview_actions.prev_conflict,
+                {
+                    desc =
+                    "In the merge-tool: jump to the previous conflict"
+                } },
+            { "n", "]x", diffview_actions.next_conflict,
+                {
+                    desc =
+                    "In the merge-tool: jump to the next conflict"
+                } }
+        }
+    }
+})
 
 local neogit = require('neogit')
 neogit.setup {

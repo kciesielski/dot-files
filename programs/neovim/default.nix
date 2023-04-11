@@ -155,7 +155,7 @@ in
       neoscroll-nvim
       neogit
       undotree
-      # diffview-nvim
+      diffview-nvim
       goto-preview
       nvim-dap
       {

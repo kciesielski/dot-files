@@ -23,6 +23,9 @@ nnoremap <silent> <C-Down> :TmuxResizeDown<CR>
 nnoremap <silent> <C-Up> :TmuxResizeUp<CR>
 nnoremap <silent> <C-Right> :TmuxResizeRight<CR>
 
+nnoremap <silent> <C-q> :try \| tabclose \| catch \| qa \| endtry<CR>
+nnoremap <silent> <leader>hh :DiffviewFileHistory %<cr>
+
 set tabstop     =4
 set softtabstop =4
 set shiftwidth  =4
@@ -36,5 +39,4 @@ endif
 let &undodir=s:undodir
 set undofile
 
-set diffopt+=linematch:60
 let g:undotree_WindowLayout = 2

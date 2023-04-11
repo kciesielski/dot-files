@@ -71,7 +71,7 @@
         overlays = [
           (self: super: { derivations = import ./derivations { pkgs = super; inherit (nixpkgs) lib; }; })
           overlays
-          neovim-nightly-overlay.overlay
+          # neovim-nightly-overlay.overlay
         ];
       };
     in
