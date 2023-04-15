@@ -17,7 +17,7 @@ cnoremap <expr> <Right> pumvisible() ? "\<Down>"  : "\<Right>"
 nnoremap <silent> <ESC> :noh<ESC>
 
 let g:tmux_resizer_no_mappings = 1
-
+inoremap jj <ESC>
 nnoremap <silent> <C-Left> :TmuxResizeLeft<CR>
 nnoremap <silent> <C-Down> :TmuxResizeDown<CR>
 nnoremap <silent> <C-Up> :TmuxResizeUp<CR>
