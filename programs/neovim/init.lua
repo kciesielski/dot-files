@@ -164,7 +164,7 @@ map("n", "<leader>jt", function()
     virtual_text = not virtual_text
     diag.config({ virtual_text = virtual_text })
 end, { desc = "toggle virtual text" })
-map("n", "k", function()
+map("n", "=", function()
     diag.open_float()
 end, { desc = "show diagnostic under the cursor" })
 
