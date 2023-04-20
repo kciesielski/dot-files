@@ -41,10 +41,10 @@ in
     ];
     plugins = with pkgs.vimPlugins; [
       rec {
-        plugin = kanagawa-nvim;
+        plugin = catppuccin-nvim;
         config = ''
           packadd! ${plugin.pname}
-          colorscheme kanagawa
+          colorscheme catppuccin
         '';
       }
       {
@@ -155,6 +155,7 @@ in
       neoscroll-nvim
       neogit
       undotree
+      vim-illuminate
       diffview-nvim
       goto-preview
       nvim-dap
