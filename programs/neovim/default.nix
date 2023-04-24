@@ -156,6 +156,7 @@ in
       neogit
       undotree
       vim-illuminate
+      p_nvim-navbuddy
       diffview-nvim
       goto-preview
       nvim-dap

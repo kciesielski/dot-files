@@ -6,7 +6,7 @@ local diag = vim.diagnostic
 -- global variable to control if lsp should format file on save
 Auto_format = true
 
-local setup = function(telescope, telescope_builtin, navic, next_integrations, tsserver_path, typescript_path,
+local setup = function(telescope, telescope_builtin, navic, navbuddy, next_integrations, tsserver_path, typescript_path,
                        metals_binary_path)
     -- lsp
     local lspconfig = require("lspconfig")
@@ -18,6 +18,7 @@ local setup = function(telescope, telescope_builtin, navic, next_integrations, t
     local on_attach = function(client, bufnr)
         if client.server_capabilities.documentSymbolProvider then
             navic.attach(client, bufnr)
+            navbuddy.attach(client, bufnr)
         end
         require("lsp-inlayhints").on_attach(client, bufnr)
         local function mapB(mode, l, r, desc)
