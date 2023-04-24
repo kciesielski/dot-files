@@ -178,8 +178,6 @@ in
       p_nvim-metals
       p_nvim-tmux-resize
       trouble-nvim
-      vim-repeat # needed for leap
-      p_nvim-leap
       gitlinker-nvim
       p_nvim-actions-preview
       {

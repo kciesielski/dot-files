@@ -168,18 +168,6 @@ map("n", "=", function()
     diag.open_float()
 end, { desc = "show diagnostic under the cursor" })
 
-local leap = require("leap")
-leap.add_default_mappings()
--- The below settings make Leap's highlighting a bit closer to what you've been
--- used to in Lightspeed.
-api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
-api.nvim_set_hl(0, 'LeapMatch', {
-    fg = 'white', -- for light themes, set to 'black' or similar
-    bold = true,
-    nocombine = true,
-})
-leap.opts.highlight_unlabeled_phase_one_targets = true
---
 local nvim_next_builtins = require("nvim-next.builtins")
 require("nvim-next").setup({
     default_mappings = {
