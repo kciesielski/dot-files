@@ -21,7 +21,7 @@
         blink_timeout = 0;
       };
       font = {
-        size = 11;
+        size = 9;
 
         normal.family = "JetBrains Mono Nerd Font";
         normal.style = "Regular";
