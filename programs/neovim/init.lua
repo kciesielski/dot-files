@@ -22,6 +22,7 @@ map("c", "<C-e>", "<END>", { noremap = true })
 -- }
 
 map("n", "<F11>", ":wall<CR>", { noremap = true, silent = true })
+map("i", "<F11>", "<ESC>:wall<CR>", { noremap = true, silent = true })
 map("n", "<leader>su", function()
     diag.setqflist()
 end, { desc = "Diagnostics into qflist" })
