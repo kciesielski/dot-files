@@ -45,6 +45,10 @@
         url = "github:ghostbuster91/nvim-next";
         flake = false;
       };
+      p_nvim-navbuddy = {
+        url = "github:SmiteshP/nvim-navbuddy";
+        flake = false;
+      };
       p_nvim-portal = {
         url = "github:cbochs/portal.nvim";
         flake = false;
