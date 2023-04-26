@@ -15,14 +15,15 @@ cnoremap <expr> <Right> pumvisible() ? "\<Down>"  : "\<Right>"
 
 "This unsets the "last search pattern" register by hitting return
 nnoremap <silent> <ESC> :noh<ESC>
-
 let g:tmux_resizer_no_mappings = 1
-inoremap jj <ESC>
+"Exit input mode with jj 
+inoremap jj <ESC> 
 nnoremap <silent> <C-Left> :TmuxResizeLeft<CR>
 nnoremap <silent> <C-Down> :TmuxResizeDown<CR>
 nnoremap <silent> <C-Up> :TmuxResizeUp<CR>
 nnoremap <silent> <C-Right> :TmuxResizeRight<CR>
 
+" Close tab (or close nvim if on the main tab!)
 nnoremap <silent> <C-q> :try \| tabclose \| catch \| qa \| endtry<CR>
 nnoremap <silent> <leader>hh :DiffviewFileHistory %<cr>
 
