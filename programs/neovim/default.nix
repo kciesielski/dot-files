@@ -44,7 +44,7 @@ in
         plugin = catppuccin-nvim;
         config = ''
           packadd! ${plugin.pname}
-          colorscheme catppuccin
+          colorscheme catppuccin-macchiato
         '';
       }
       {
