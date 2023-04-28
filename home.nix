@@ -57,6 +57,7 @@
     ./programs/tmux
     ./programs/zsh
     ./programs/neovim
+    ./programs/neofetch
     ./programs/git
   ];
 
@@ -69,7 +70,7 @@
     xsv # csv manipulation
     fd # faster find
     ripgrep # better grep
-
+    glow # terminal markdown viewer
     tree # display tree structure of directory
     jq # pretty-print json
 
