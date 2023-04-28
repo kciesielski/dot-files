@@ -71,9 +71,11 @@
     fd # faster find
     ripgrep # better grep
     glow # terminal markdown viewer
+    ouch # compression and decompression
     tree # display tree structure of directory
     jq # pretty-print json
-
+    rage # encryption tool for secrets management
+    shell_gpt # ChatGPT CLI
     k9s # Kubernetes
     ctop # Like k9s but for Docker
 
