@@ -102,6 +102,7 @@
     xsel # for tmux-yank
 
     gh
+    sysz # pretty interactive systemd viewer
     tig
     statix # nix linter
     nix-output-monitor
