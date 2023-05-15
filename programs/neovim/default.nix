@@ -159,6 +159,8 @@ in
       p_nvim-navbuddy
       diffview-nvim
       goto-preview
+      p_nvim-hbac # Heuristic buffer auto-close
+      nvim-ts-context-commentstring # context-aware comment strings
       nvim-dap
       {
         plugin = nvim-dap-ui;
@@ -231,7 +233,6 @@ in
         '';
       }
       p_nvim-spider
-      p_nvim-early-retirement
       p_nvim-lsp-inlayhints
     ];
   };

@@ -29,8 +29,8 @@
           url = "github:chrisgrieser/nvim-spider";
           flake = false;
         };
-      p_nvim-early-retirement = {
-        url = "github:chrisgrieser/nvim-early-retirement";
+      p_nvim-hbac = {
+        url = "github:axkirillov/hbac.nvim";
         flake = false;
       };
       p_nvim-leap = {

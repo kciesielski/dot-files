@@ -202,9 +202,6 @@ map("n", "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" 
 map("n", "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 map("n", "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 map("n", "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
-require("early-retirement").setup({
-    retirementAgeMins = 15
-})
 require("gitlinker").setup()
 require("auto-save").setup({
     trigger_events = { "BufLeave" }
