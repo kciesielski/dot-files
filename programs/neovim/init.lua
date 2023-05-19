@@ -219,3 +219,13 @@ require("local/cmp").setup()
 require("local/lualine").setup(navic)
 require("local/treesitter").setup(next_integrations)
 require("local/neoscroll").setup()
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        if #vim.fn.argv() == 0 then
+            vim.defer_fn(function()
+                vim.cmd("silent! lua require('telescope.builtin').find_files()")
+            end, 500)
+        end
+    end,
+})
