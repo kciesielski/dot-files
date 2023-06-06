@@ -70,13 +70,14 @@
     xsv # csv manipulation
     fd # faster find
     ripgrep # better grep
+    (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     glow # terminal markdown viewer
     ouch # compression and decompression
     tree # display tree structure of directory
     jq # pretty-print json
     rage # encryption tool for secrets management
     shell_gpt # ChatGPT CLI
-    k9s # Kubernetes
+    k9s # Kubernetes browser
     ctop # Like k9s but for Docker
 
     # Files
