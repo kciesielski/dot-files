@@ -41,3 +41,8 @@ let &undodir=s:undodir
 set undofile
 
 let g:undotree_WindowLayout = 2
+
+
+"When a file has been detected to have been changed outside of Vim
+"and it has not been changed inside of Vim, automatically read it again.
+:set autoread
