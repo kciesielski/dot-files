@@ -63,58 +63,43 @@
 
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    diff-so-fancy # pretty diffs
-    git-gone # get rid of orphan local branches
     bat # better cat
-    tokei # better cloc
-    xsv # csv manipulation
-    fd # faster find
-    ripgrep # better grep
-    (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
-    glow # terminal markdown viewer
-    ouch # compression and decompression
-    tree # display tree structure of directory
-    jq # pretty-print json
-    rage # encryption tool for secrets management
-    shell_gpt # ChatGPT CLI
-    k9s # Kubernetes browser
     ctop # Like k9s but for Docker
-
-    # Files
+    diff-so-fancy # pretty diffs
     dua # disk usage analyzer
-
-
-    # nix stuff
+    fd # faster find
+    flameshot
+    gh
+    git-gone # get rid of orphan local branches
+    glow # terminal markdown viewer
+    gnome3.gnome-tweaks
+    gnomeExtensions.paperwm
+    (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+    htop
+    jq # pretty-print json
+    k9s # Kubernetes browser
+    kubectl
+    neofetch
     nix-du
     nix-index
-    nixpkgs-review
+    nix-output-monitor
+    nix-prefetch
     nix-tree
     nixfmt
-    nix-prefetch
+    nixpkgs-review
     nurl
-
-    # Media
-    youtube-dl
-
-    # Overview
-    htop
-    neofetch
-
-    xsel # for tmux-yank
-
-    gh
+    ouch # compression and decompression
+    rage # encryption tool for secrets management
+    ripgrep # better grep
+    shell_gpt # ChatGPT CLI
+    statix # nix linter
     sysz # pretty interactive systemd viewer
     tig
-    statix # nix linter
-    nix-output-monitor
-
-    kubectl
-
-    # gnome stuff
-    flameshot
-    gnomeExtensions.paperwm
-    gnome3.gnome-tweaks
-
+    tokei # better cloc
+    tree # display tree structure of directory
+    xsel # for tmux-yank
+    xsv # csv manipulation
+    youtube-dl
     zoom-us
   ];
 
