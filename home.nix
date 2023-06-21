@@ -114,6 +114,8 @@
     flameshot
     gnomeExtensions.paperwm
     gnome3.gnome-tweaks
+
+    zoom-us
   ];
 
   programs = {
