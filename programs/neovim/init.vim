@@ -27,6 +27,9 @@ nnoremap <silent> <C-Right> :TmuxResizeRight<CR>
 nnoremap <silent> <C-q> :try \| tabclose \| catch \| qa \| endtry<CR>
 nnoremap <silent> <leader>hh :DiffviewFileHistory %<cr>
 
+" Replace all occurrences of selected text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 set tabstop     =4
 set softtabstop =4
 set shiftwidth  =4
