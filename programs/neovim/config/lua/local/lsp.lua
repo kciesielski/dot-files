@@ -172,6 +172,8 @@ local setup = function(telescope, telescope_builtin, navic, navbuddy, next_integ
         },
     }
     metals_config.init_options.statusBarProvider = "on"
+    -- Uncomment to enable colors in dap-repl for metals (not working atm)
+    -- metals_config.init_options.disableColorOutput = false
     metals_config.capabilities = capabilities
 
     local dap = require("dap")
