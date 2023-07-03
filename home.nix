@@ -53,7 +53,6 @@
   imports = [
     ./programs/scala
     ./programs/alacritty
-    ./programs/vscode
     ./programs/tmux
     ./programs/zsh
     ./programs/neovim
