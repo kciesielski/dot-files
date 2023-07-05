@@ -38,11 +38,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1688302761,
-        "narHash": "sha256-YIYKeX3YfoAIg9DTe6cl1ga87rDCNDZugdGuqsvEN30=",
+        "lastModified": 1688538658,
+        "narHash": "sha256-clmdd/NB9jqhuB9TlSyj9nI1dW2rqroPQCsHGYfD1jU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c85d9137db45a1c9c161f4718b13cc3bd4cbd173",
+        "rev": "2f78e6fcba61ce81536d19e6c662e55ab272d539",
         "type": "github"
       },
       "original": {
@@ -144,11 +144,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1688231357,
-        "narHash": "sha256-ZOn16X5jZ6X5ror58gOJAxPfFLAQhZJ6nOUeS4tfFwo=",
+        "lastModified": 1688322751,
+        "narHash": "sha256-eW62dC5f33oKZL7VWlomttbUnOTHrAbte9yNUNW8rbk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "645ff62e09d294a30de823cb568e9c6d68e92606",
+        "rev": "0fbe93c5a7cac99f90b60bdf5f149383daaa615f",
         "type": "github"
       },
       "original": {
@@ -177,11 +177,11 @@
     "p_nvim-hbac": {
       "flake": false,
       "locked": {
-        "lastModified": 1685689931,
-        "narHash": "sha256-wQ/WE9lTrebl75nYkE/C/Ce3YIhrkEveoJjMHLH6Bv4=",
+        "lastModified": 1688380687,
+        "narHash": "sha256-1uA9jQtw869YNywQ9ro5FszZJJrSw0Ce4XabVkJbQm0=",
         "owner": "axkirillov",
         "repo": "hbac.nvim",
-        "rev": "ef323b57af1bbd01865f1601a92947111ce2e0ba",
+        "rev": "afb38c35327e763e5b3b72cad09ed76e37219ace",
         "type": "github"
       },
       "original": {
@@ -193,11 +193,11 @@
     "p_nvim-leap": {
       "flake": false,
       "locked": {
-        "lastModified": 1688326449,
-        "narHash": "sha256-ZQr9Gb8TsHFxPl9T7VhwJSuUXIJQ61G8mKDn5grkpBA=",
+        "lastModified": 1688461226,
+        "narHash": "sha256-9j3tN3sHPb2Zyqlr7JTjOpaYfyBCVokDSr8FkhGNv6A=",
         "owner": "ggandor",
         "repo": "leap.nvim",
-        "rev": "aadf42e0ab97b38715e6233f253cd571dd3bb96c",
+        "rev": "8facf2eb6a378fd7691dce8c8a7b2726823e2408",
         "type": "github"
       },
       "original": {
@@ -225,11 +225,11 @@
     "p_nvim-metals": {
       "flake": false,
       "locked": {
-        "lastModified": 1687555791,
-        "narHash": "sha256-CoWc5Ax224jkFta8mHmbT7eT8j2nw9gAtE+F+IjoyFc=",
+        "lastModified": 1688451614,
+        "narHash": "sha256-xASamBwnS9uRT1wzYih4rBRPx/UgiVvsinhgSAlmn2c=",
         "owner": "scalameta",
         "repo": "nvim-metals",
-        "rev": "6065608a98a6add79886ad8ab6d2f2619cff8a09",
+        "rev": "cd50bfeae9915b827289141ee9914b79fc8887aa",
         "type": "github"
       },
       "original": {
