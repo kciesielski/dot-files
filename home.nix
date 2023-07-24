@@ -88,6 +88,7 @@
     nixpkgs-review
     nurl
     ouch # compression and decompression
+    peek # recording gifs from desktop, gnome only?
     rage # encryption tool for secrets management
     ripgrep # better grep
     shell_gpt # ChatGPT CLI
@@ -100,6 +101,7 @@
     xsv # csv manipulation
     youtube-dl
     zoom-us
+    calibre
   ];
 
   programs = {
