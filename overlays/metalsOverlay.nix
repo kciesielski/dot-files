@@ -3,6 +3,6 @@ let
   metalsBuilder = import ./metalsBuilder.nix { inherit pkgs; };
 in
 metalsBuilder {
-  version = "0.11.12+160-84f04454-SNAPSHOT";
-  outputHash = "sha256-FoQNht+hl+uBCBAqAwh/XGOzPSlalk7qd1RFdj0NDbQ=";
+  version = "1.0.0";
+  outputHash = "sha256-futBxdMEJN0UdDvlk5FLUUmcG7r7P7D81IhbC2oYn5s=";
 }
