@@ -1,12 +1,11 @@
 { pkgs }:
 pkgs.tree-sitter.buildGrammar rec {
   language = "scala";
-  version = "bc9fb988bfc25fc727342882c8ac2e12e023979f";
+  version = "f14629b4d53f72356ce8f6d4ac8c54d21b4e74dd";
   src = pkgs.fetchFromGitHub {
     owner = "tree-sitter";
     repo = "tree-sitter-scala";
     rev = version;
-    hash = "sha256-h6FVIwSw188pT6wLPMXjnkBQ9kEjFQbY/8fhJyKLeYA=";
-
+    hash = "sha256-SRj4iF1qS2jEFaIkRfXzAmzG7jKeSzKv5/GdXKbKRjU=";
   };
 }
