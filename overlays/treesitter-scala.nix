@@ -1,7 +1,7 @@
 { pkgs }:
 pkgs.tree-sitter.buildGrammar rec {
   language = "scala";
-  version = "f14629b4d53f72356ce8f6d4ac8c54d21b4e74dd";
+  version = "d50b6ca5cc3d925e3d1f497199cb8d8383ddae8a";
   src = pkgs.fetchFromGitHub {
     owner = "tree-sitter";
     repo = "tree-sitter-scala";
