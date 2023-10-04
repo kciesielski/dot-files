@@ -21,6 +21,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  home.file.".ssh/allowed_signers".text = "* ${builtins.readFile ./id_rsa.pub}";
   home.file.".config/nix/registry.json".text = builtins.toJSON {
     flakes =
       lib.mapAttrsToList
@@ -69,6 +70,7 @@
     fd # faster find
     flameshot
     gh
+    git-crypt # git files encryption
     git-gone # get rid of orphan local branches
     glow # terminal markdown viewer
     gnome3.gnome-tweaks
