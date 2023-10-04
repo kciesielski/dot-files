@@ -90,6 +90,7 @@
     nixpkgs-review
     nurl
     ouch # compression and decompression
+    p7zip # compression/decompression with reliable password protection
     peek # recording gifs from desktop, gnome only?
     rage # encryption tool for secrets management
     ripgrep # better grep
