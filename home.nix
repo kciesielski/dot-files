@@ -67,6 +67,7 @@
     ctop # Like k9s but for Docker
     diff-so-fancy # pretty diffs
     dua # disk usage analyzer
+    eza # a for of exa, better ls
     fd # faster find
     flameshot
     gh
@@ -102,16 +103,13 @@
     tree # display tree structure of directory
     xsel # for tmux-yank
     xsv # csv manipulation
+    yarn
     youtube-dl
     zoom-us
     calibre
   ];
 
   programs = {
-    exa = {
-      enable = true;
-      enableAliases = true;
-    };
     fzf = {
       enable = true;
       enableZshIntegration = true;
