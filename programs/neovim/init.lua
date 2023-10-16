@@ -148,6 +148,7 @@ map("n", '<leader>n', function()
     neogit.open()
 end, { desc = "neogit" })
 
+require("error-lens").setup(client, {})
 require('goto-preview').setup {
     default_mappings = true,
 }

@@ -174,6 +174,22 @@
         "type": "github"
       }
     },
+    "p_nvim-errorlens": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695914176,
+        "narHash": "sha256-Zxj0qq0UZLc37KQT9c9J05iAMty1fxclfQrqdFbO1BI=",
+        "owner": "chikko80",
+        "repo": "error-lens.nvim",
+        "rev": "e13b966dfd42517a92df1eb5d73fd14905e483a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chikko80",
+        "repo": "error-lens.nvim",
+        "type": "github"
+      }
+    },
     "p_nvim-hbac": {
       "flake": false,
       "locked": {
@@ -325,6 +341,7 @@
         "nixGL": "nixGL",
         "nixpkgs": "nixpkgs_2",
         "p_nvim-actions-preview": "p_nvim-actions-preview",
+        "p_nvim-errorlens": "p_nvim-errorlens",
         "p_nvim-hbac": "p_nvim-hbac",
         "p_nvim-leap": "p_nvim-leap",
         "p_nvim-lsp-inlayhints": "p_nvim-lsp-inlayhints",

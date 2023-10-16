@@ -29,6 +29,11 @@
           url = "github:chrisgrieser/nvim-spider";
           flake = false;
         };
+      p_nvim-errorlens =
+        {
+          url = "github:chikko80/error-lens.nvim";
+          flake = false;
+        };
       p_nvim-hbac = {
         url = "github:axkirillov/hbac.nvim";
         flake = false;
