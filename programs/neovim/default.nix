@@ -152,6 +152,7 @@ in
       fidget-nvim
       nvim-lightbulb
       p_nvim-next
+      p_nvim-local-highlight
       neoscroll-nvim
       neogit
       undotree
