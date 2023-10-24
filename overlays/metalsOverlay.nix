@@ -3,6 +3,7 @@ let
   metalsBuilder = import ./metalsBuilder.nix { inherit pkgs; };
 in
 metalsBuilder {
-  version = "1.0.1";
-  outputHash = "sha256-AamUE6mr9fwjbDndQtzO2Yscu2T6zUW/DiXMYwv35YE=";
+  # https://scalameta.org/metals/latests.json
+  version = "1.1.0+17-728623ba-SNAPSHOT";
+  outputHash = "sha256-CldHzFMvFWoKWP6Nx3cmX89JbMaQ6t7Ye3Cx5A5NxWU=";
 }
