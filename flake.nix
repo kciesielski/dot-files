@@ -62,10 +62,6 @@
         url = "github:RyanMillerC/better-vim-tmux-resizer";
         flake = false;
       };
-      p_nvim-local-highlight = {
-        url = "github:tzachar/local-highlight.nvim";
-        flake = false;
-      };
     };
 
   outputs = inputs @ { home-manager, nixpkgs, nixGL, ... }:

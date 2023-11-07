@@ -83,10 +83,6 @@ local function single_click_edit(node)
     end, 10)
 end
 
-vim.api.nvim_set_hl(0, 'MyHighlightGroup4', { bg = '#2A2A37' })
-require('local-highlight').setup({
-    hlgroup = 'MyHighlightGroup4',
-})
 
 require("nvim-tree").setup({
     view = {

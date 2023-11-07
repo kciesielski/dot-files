@@ -131,7 +131,7 @@ in
       ))
       playground
       nvim-treesitter-textobjects
-
+      nvim-treesitter-refactor
       nvim-web-devicons
       lualine-nvim
       nvim-navic
@@ -151,8 +151,7 @@ in
       nui-nvim
       fidget-nvim
       nvim-lightbulb
-      p_nvim-next
-      p_nvim-local-highlight
+      p_nvim-next      
       neoscroll-nvim
       neogit
       undotree
