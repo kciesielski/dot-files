@@ -212,6 +212,7 @@ require("local/lsp").setup(telescope.core, telescope.builtin, navic, navbuddy, n
     typescript_path,
     metals_binary_path)
 require("local/gitsigns").setup(next_integrations)
+local luasnip = require("local/luasnip").setup()
 require("local/cmp").setup()
 require("local/lualine").setup(navic)
 require("local/treesitter").setup(next_integrations)
