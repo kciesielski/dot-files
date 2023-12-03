@@ -105,7 +105,6 @@
     xsv # csv manipulation
     yarn
     youtube-dl
-    zoom-us
     calibre
   ];
 
