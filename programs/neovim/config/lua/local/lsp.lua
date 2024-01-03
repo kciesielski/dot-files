@@ -74,11 +74,11 @@ local setup = function(telescope, telescope_builtin, navic, navbuddy, next_integ
                 desc = 'format with lsp on save',
                 callback = function()
                     if Auto_format then
-                        local excluded_extensions = { "md" }  -- Don't autoformat
+                        local excluded_extensions = { "md", "yml" } -- Don't autoformat
 
                         -- Get the current buffer's file name
                         local buf_name = vim.fn.expand('%:t')
-                        
+
                         -- Extract the file extension
                         local file_extension = string.match(buf_name, "%.(%w+)$")
 
