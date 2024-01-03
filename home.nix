@@ -96,6 +96,7 @@
     rage # encryption tool for secrets management
     ripgrep # better grep
     shell_gpt # ChatGPT CLI
+    spotdl # download spotify tracks from YT 
     statix # nix linter
     sysz # pretty interactive systemd viewer
     tig
