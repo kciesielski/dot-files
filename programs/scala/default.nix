@@ -3,7 +3,7 @@
   imports = [ ./bloop.nix ];
 
   home.packages = with pkgs; [
-    openjdk21
+    openjdk19
     scala
     ammonite
     scalafmt
@@ -13,7 +13,7 @@
   ];
 
   home.sessionVariables = {
-    JAVA_HOME = "${pkgs.openjdk21}";
+    JAVA_HOME = "${pkgs.openjdk19}";
     JVM_DEBUG =
       "-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005";
   };
