@@ -4,10 +4,10 @@
   inputs =
     {
       nix.url = "github:nixos/nix/2.19-maintenance";
-      nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
       home-manager = {
-        url = "github:nix-community/home-manager";
+        url = "github:nix-community/home-manager/release-23.11";
         inputs.nixpkgs.follows = "nixpkgs";
       };
       nixGL = {
@@ -95,7 +95,7 @@
             home = {
               inherit username;
               homeDirectory = "/home/${username}";
-              stateVersion = "23.05";
+              stateVersion = "23.11";
             };
           }
         ];
