@@ -1,5 +1,10 @@
 # dot-files
 
+## CLI utils
+If you're here just to check all the cool CLI utils I'm using, go straight to home.nix and view the `CLI utils` section, 
+or use the `cli` command available after configuring dotfiles to display it.
+
+## Usage
 Install nix in multi-user mode:
 https://nixos.org/manual/nix/stable/installation/installing-binary.html#multi-user-installation
 

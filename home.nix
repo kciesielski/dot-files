@@ -63,25 +63,37 @@
 
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    bat # better cat
-    ctop # Like k9s but for Docker
+    ### CLI utils
+    bat           # better cat
+    ctop          # Like k9s but for Docker
     diff-so-fancy # pretty diffs
-    dua # disk usage analyzer
-    eza # a for of exa, better ls
-    fd # faster find
-    flameshot
-    gh
+    dua           # disk usage analyzer
+    eza           # a for of exa, better ls
+    fd            # faster find, recursive, example: 'fd Main.scala'
+    gh            # GitHub utils
+    git-gone      # get rid of orphan local branches
+    glow          # terminal markdown viewer
+    htop          # system process manager
+    jq            # query and pretty-print json
+    k9s           # Kubernetes browser
+    neofetch      # rich system info
+    ouch          # compression and decompression
+    p7zip         # compression/decompression with reliable password protection
+    ripgrep       # better grep, 'rg'
+    shell_gpt     # ChatGPT CLI, 'sgpt'
+    spotdl        # download spotify tracks from YT 
+    sysz          # pretty interactive systemd viewer
+    tig           # nice git log with ASCII branches
+    tokei         # better cloc, lines of code, stats
+    tree          # display tree structure of directory
+    xsel          # Operate on clipboard, 'cat file | xsel -b' and 'xsel -b'
+    xsv           # csv manipulation
+    ###
+    flameshot # take screenshots in Gnome
     git-crypt # git files encryption
-    git-gone # get rid of orphan local branches
-    glow # terminal markdown viewer
     gnome3.gnome-tweaks
     gnomeExtensions.paperwm
     (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
-    htop
-    jq # pretty-print json
-    k9s # Kubernetes browser
-    kubectl
-    neofetch
     nix-du
     nix-index
     nix-output-monitor
@@ -90,23 +102,13 @@
     nixfmt
     nixpkgs-review
     nurl
-    ouch # compression and decompression
-    p7zip # compression/decompression with reliable password protection
     peek # recording gifs from desktop, gnome only?
     rage # encryption tool for secrets management
-    ripgrep # better grep
-    shell_gpt # ChatGPT CLI
-    spotdl # download spotify tracks from YT 
     statix # nix linter
-    sysz # pretty interactive systemd viewer
-    tig
-    tokei # better cloc
-    tree # display tree structure of directory
-    xsel # for tmux-yank
-    xsv # csv manipulation
-    yarn
+    kubectl
     youtube-dl
     calibre
+    yarn
   ];
 
   programs = {

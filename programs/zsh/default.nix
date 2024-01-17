@@ -128,6 +128,8 @@
     shellAliases = {
       lsd = "${pkgs.eza}/bin/eza --long --header --git --all";
       git-branches = "git for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:iso8601)%09%(color:white)%(refname:short)' refs/heads";
+      # A quick overview of all CLI utils
+      cli = "sed -n '/### CLI utils/,/###/p' ~/workspace/dot-files/home.nix";
     };
   };
 }
