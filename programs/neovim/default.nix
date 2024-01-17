@@ -110,6 +110,7 @@ in
             tree-sitter-yaml
             tree-sitter-json
             tree-sitter-markdown
+            tree-sitter-markdown-inline
             tree-sitter-comment
             tree-sitter-bash
             tree-sitter-javascript
@@ -151,7 +152,7 @@ in
       nui-nvim
       fidget-nvim
       nvim-lightbulb
-      p_nvim-next      
+      p_nvim-next
       neoscroll-nvim
       neogit
       undotree
