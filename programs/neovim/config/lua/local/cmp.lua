@@ -6,6 +6,11 @@ local setup = function()
     local lspkind = require("lspkind")
     local cmp = require("cmp")
     local compare = require('cmp.config.compare')
+    local has_words_before = function()
+        if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+    end
     cmp.setup({
         snippet = {
             expand = function(args)
@@ -16,6 +21,7 @@ local setup = function()
             format = lspkind.cmp_format({
                 mode = "symbol_text",
                 maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                symbol_map = { Copilot = "" }
             }),
         },
         mapping = {
@@ -33,15 +39,13 @@ local setup = function()
                 behavior = cmp.ConfirmBehavior.Insert,
                 select = true,
             }),
-            ["<Tab>"] = function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item()
-                elseif luasnip.expand_or_jumpable() then
-                    luasnip.expand_or_jump()
+            ["<Tab>"] = vim.schedule_wrap(function(fallback)
+                if cmp.visible() and has_words_before() then
+                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
                 else
                     fallback()
                 end
-            end,
+            end),
             ["<S-Tab>"] = function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
@@ -53,20 +57,24 @@ local setup = function()
             end,
         },
         sources = {
-            { name = "nvim_lsp", priority = 10 },
-            { name = "buffer",   priority = 9 },
-            { name = 'tmux',     priority = 8 },
-            { name = "luasnip" },
+            { name = "copilot",  group_index = 2 },
+            { name = "nvim_lsp", group_index = 2 },
+            { name = "buffer",   group_index = 2 },
+            { name = "luasnip",  group_index = 2 },
+            { name = 'tmux',     group_index = 2 },
             { name = "path" },
         },
         preselect = cmp.PreselectMode.None, -- disable preselection
         sorting = {
             priority_weight = 2,
             comparators = {
+                require("copilot_cmp.comparators").prioritize,
                 compare.offset,    -- we still want offset to be higher to order after 3rd letter
+                compare.exact,
                 compare.score,     -- same as above
-                compare.sort_text, -- add higher precedence for sort_text, it must be above `kind`
                 compare.recently_used,
+                compare.locality,
+                compare.sort_text, -- add higher precedence for sort_text, it must be above `kind`
                 compare.kind,
                 compare.length,
                 compare.order,

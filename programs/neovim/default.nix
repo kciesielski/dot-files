@@ -160,6 +160,8 @@ in
       p_nvim-navbuddy
       diffview-nvim
       goto-preview
+      p_nvim-copilot
+      p_nvim-copilot-cmp # adds copilot suggestions to completions
       p_nvim-hbac # Heuristic buffer auto-close
       nvim-ts-context-commentstring # context-aware comment strings
       nvim-dap

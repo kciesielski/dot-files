@@ -11,11 +11,9 @@ global_opt.clipboard = "unnamed"
 global_opt.timeoutlen = 200
 
 local next_integrations = require("nvim-next.integrations")
-
 -- Saving files as root with w!! {
 map("c", "w!!", "%!sudo tee > /dev/null %", { noremap = true })
 -- }
-
 -- <CTRL> + a and <CTRL> + e move to the beginning and the end of the line
 map("c", "<C-a>", "<HOME>", { noremap = true })
 map("c", "<C-e>", "<END>", { noremap = true })
@@ -56,7 +54,6 @@ api.nvim_create_autocmd(
 
 
 require("which-key").setup()
-
 require("nvim-autopairs").setup({
     enable_check_bracket_line = false,
     check_ts = true,
@@ -84,6 +81,9 @@ local function single_click_edit(node)
     end, 10)
 end
 
+local function enable_check_bracket_line()
+    print()
+end
 
 require("nvim-tree").setup({
     view = {
@@ -219,6 +219,10 @@ require("local/lualine").setup(navic)
 require("local/treesitter").setup(next_integrations)
 require("local/neoscroll").setup()
 
+require("copilot").setup({
+    suggestion = { enabled = false }, -- because we're using copilot-cmp
+    panel = { enabled = false }
+})
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         if #vim.fn.argv() == 0 then
