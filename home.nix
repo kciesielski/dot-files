@@ -94,6 +94,7 @@
     gnome3.gnome-tweaks
     gnomeExtensions.paperwm
     (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+    jhiccup
     nix-du
     nix-index
     nix-output-monitor
