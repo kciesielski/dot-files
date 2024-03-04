@@ -227,7 +227,26 @@ vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         if #vim.fn.argv() == 0 then
             vim.defer_fn(function()
-                vim.cmd("silent! lua require('telescope.builtin').find_files()")
+                -- Check if inside a git repository
+                local is_inside_git_repo = os.execute("git rev-parse --is-inside-work-tree > /dev/null 2>&1")
+
+                if is_inside_git_repo == 0 then
+                    -- Now check if there are any modifications
+                    local handle = io.popen("git status --porcelain")
+                    local git_status_output = handle:read("*a")
+                    handle:close()
+
+                    if git_status_output ~= "" then
+                        -- There are changes
+                        vim.cmd("silent! lua require('telescope.builtin').git_status()")
+                    else
+                        -- No changes
+                        vim.cmd("silent! lua require('telescope.builtin').find_files()")
+                    end
+                else
+                    -- Not inside a git repo, so use find_files
+                    vim.cmd("silent! lua require('telescope.builtin').find_files()")
+                end
             end, 500)
         end
     end,
