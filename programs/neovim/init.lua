@@ -220,9 +220,10 @@ require("local/treesitter").setup(next_integrations)
 require("local/neoscroll").setup()
 
 require("copilot").setup({
-    suggestion = { enabled = false }, -- because we're using copilot-cmp
+    suggestion = { enabled = false, auto_trigger = false }, -- because we're using copilot-cmp
     panel = { enabled = false }
 })
+require("copilot_cmp").setup()
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         if #vim.fn.argv() == 0 then
