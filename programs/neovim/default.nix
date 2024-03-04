@@ -49,22 +49,6 @@ in
       }
       {
         plugin = telescope-nvim;
-        config = ''
-          "It has to be set in the first plugin's config as plugins get sourced before any other configuration and the leader customization doesn't work otherwise
-          let mapleader = "${leaderKey}"
-          nnoremap <Leader>tf <cmd>Telescope find_files<cr>
-          nnoremap <Leader>th <cmd>Telescope buffers<cr>
-          nnoremap <Leader>gh <cmd>lua require('telescope.builtin').git_commits()<cr>
-          nnoremap <Leader>tr <cmd>Telescope registers<cr>
-          lua << EOF
-              vim.keymap.set("n", "<leader>hc", function()
-                require("telescope.builtin").git_bcommits()
-              end, { desc = "Buffer commites"})
-              vim.keymap.set("n", "<leader>tg", function()
-                require("telescope.builtin").live_grep({ layout_strategy = "vertical" })
-              end, { desc = "Live grep"})
-          EOF
-        '';
       }
       telescope-fzf-native-nvim
       {
@@ -161,7 +145,6 @@ in
       diffview-nvim
       goto-preview
       p_nvim-copilot
-      p_nvim-copilot-cmp # adds copilot suggestions to completions
       p_nvim-hbac # Heuristic buffer auto-close
       nvim-ts-context-commentstring # context-aware comment strings
       nvim-dap
@@ -183,6 +166,7 @@ in
       telescope-dap-nvim
       p_nvim-metals
       p_nvim-tmux-resize
+      p_nvim-telescope-livegrep-args
       trouble-nvim
       gitlinker-nvim
       p_nvim-actions-preview
@@ -237,6 +221,7 @@ in
       }
       p_nvim-spider
       p_nvim-lsp-inlayhints
+      p_nvim-copilot-cmp # adds copilot suggestions to completions
     ];
   };
 }
