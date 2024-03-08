@@ -13,7 +13,7 @@ local setup = function(next_integrations)
             -- Instead of true it can also be a list of languages
             additional_vim_regex_highlighting = false,
             disable = function(_, bufnr) -- Disable in large buffers
-                return api.nvim_buf_line_count(bufnr) > 5000 or vim.fn.col('$') > 1000
+                return vim.api.nvim_buf_line_count(bufnr) > 5000 or vim.fn.col('$') > 1000
             end,
         },
         indent = {
