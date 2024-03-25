@@ -39,7 +39,9 @@
         inputs;
     version = 2;
   };
-
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.15.3"
+  ];
   nix.package = inputs.nix.packages.${pkgs.system}.nix;
   nix.settings.nix-path = [
     "nixpkgs=${inputs.nixpkgs}"
