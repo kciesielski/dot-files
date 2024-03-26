@@ -58,10 +58,10 @@ local setup = function()
         },
         sources = {
             { name = "copilot",  priority = 9 },
-            { name = "nvim_lsp", group_index = 10 },
-            { name = "buffer",   group_index = 8 },
-            { name = "luasnip",  group_index = 7 },
-            { name = 'tmux',     group_index = 6 },
+            { name = "nvim_lsp", priority = 10 },
+            { name = "buffer",   priority = 8 },
+            { name = "luasnip",  priority = 7 },
+            { name = 'tmux',     priority = 6 },
             { name = "path" },
         },
         preselect = cmp.PreselectMode.None, -- disable preselection
