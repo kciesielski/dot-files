@@ -42,6 +42,8 @@
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.15.3"
   ];
+
+  nixpkgs.config.allowUnfree = true;
   nix.package = inputs.nix.packages.${pkgs.system}.nix;
   nix.settings.nix-path = [
     "nixpkgs=${inputs.nixpkgs}"
@@ -112,6 +114,7 @@
     kubectl
     youtube-dl
     calibre
+    vscode
     yarn
   ];
 
