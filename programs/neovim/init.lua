@@ -224,6 +224,7 @@ require("copilot").setup({
     panel = { enabled = false }
 })
 require("copilot_cmp").setup()
+-- require("CopilotChat").setup()
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         if #vim.fn.argv() == 0 then

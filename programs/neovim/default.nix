@@ -222,6 +222,7 @@ in
       p_nvim-spider
       p_nvim-lsp-inlayhints
       p_nvim-copilot-cmp # adds copilot suggestions to completions
+      # p_nvim-copilot-chat
     ];
   };
 }

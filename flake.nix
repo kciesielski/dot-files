@@ -28,6 +28,10 @@
         url = "github:zbirenbaum/copilot-cmp";
         flake = false;
       };
+      # p_nvim-copilot-chat = {
+      #   url = "github:CopilotC-Nvim/CopilotChat.nvim/canary";
+      #   flake = false;
+      # };
       p_nvim-lsp-inlayhints = {
         url = "github:lvimuser/lsp-inlayhints.nvim";
         flake = false;
