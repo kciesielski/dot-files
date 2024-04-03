@@ -229,4 +229,5 @@ map("n", "<leader>ccq", function()
         end
     end,
     { desc = "CopilotChat - Quick chat" })
+map("n", "<leader>ccd", "<cmd>CopilotChatFixDiagnostic<CR>", { desc = "Copilot Chat fix diag" })
 map("n", "<leader>cp", "<cmd>CopilotChat<CR>", { desc = "Open Copilot Chat" })
