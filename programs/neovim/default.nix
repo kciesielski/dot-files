@@ -130,7 +130,6 @@ in
       p_nvim-errorlens
       nvim-neoclip-lua
       indent-blankline-nvim
-      nvim-tree-lua
       vim-tmux-clipboard
       telescope-ui-select-nvim
       noice-nvim
@@ -145,6 +144,7 @@ in
       p_nvim-navbuddy
       diffview-nvim
       goto-preview
+      p_nvim-neotree
       p_nvim-copilot
       p_nvim-hbac # Heuristic buffer auto-close
       nvim-ts-context-commentstring # context-aware comment strings

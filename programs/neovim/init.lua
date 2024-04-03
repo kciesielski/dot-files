@@ -71,37 +71,6 @@ require("ibl").setup()
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local function single_click_edit(node)
-    vim.defer_fn(function()
-        local win = vim.api.nvim_get_current_win()
-        local view = require "nvim-tree.view"
-        if view.get_winnr() ~= win then return end
-        local actions = require 'nvim-tree.actions.dispatch'
-        actions.dispatch("edit")
-    end, 10)
-end
-
-local function enable_check_bracket_line()
-    print()
-end
-
-require("nvim-tree").setup({
-    view = {
-        adaptive_size = true,
-        mappings = {
-            list = {
-                { key = "<LeftRelease>", action = "single_click_edit", action_cb = single_click_edit },
-            }
-        }
-    }
-})
-map("n", '<leader>et', function()
-    require("nvim-tree.api").tree.toggle(true, true)
-end, { desc = "nvim_tree toggle" })
-map("n", '<leader>ef', function()
-    require("nvim-tree.api").tree.find_file(false, true)
-end, { desc = "nvim_tree toggle" })
-
 require("oil").setup({
     keymaps = {
         ["<C-v>"] = "actions.select_vsplit",
@@ -218,7 +187,7 @@ require("local/cmp").setup()
 require("local/lualine").setup(navic)
 require("local/treesitter").setup(next_integrations)
 require("local/neoscroll").setup()
-
+require("local/neotree").setup()
 require("copilot").setup({
     suggestion = { enabled = false, auto_trigger = false }, -- because we're using copilot-cmp
     panel = { enabled = false }

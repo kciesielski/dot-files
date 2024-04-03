@@ -66,6 +66,10 @@
         url = "github:SmiteshP/nvim-navbuddy";
         flake = false;
       };
+      p_nvim-neotree = {
+        url = "github:nvim-neo-tree/neo-tree.nvim/v3.x";
+        flake = false;
+      };
       p_nvim-portal = {
         url = "github:cbochs/portal.nvim";
         flake = false;
