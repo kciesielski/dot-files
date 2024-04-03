@@ -27,6 +27,7 @@ nnoremap <silent> <C-Right> :TmuxResizeRight<CR>
 nnoremap <silent> <C-q> :try \| tabclose \| catch \| qa \| endtry<CR>
 nnoremap <silent> <leader>hh :DiffviewFileHistory %<cr>
 
+nnoremap <silent> <leader>gv <cmd> Gvdiffsplit origin/HEAD <CR>
 " Replace all occurrences of selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 

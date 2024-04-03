@@ -126,6 +126,7 @@ in
       luasnip
       lspkind-nvim
       friendly-snippets
+      fugitive
       p_nvim-errorlens
       nvim-neoclip-lua
       indent-blankline-nvim
