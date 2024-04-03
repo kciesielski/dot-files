@@ -1,6 +1,15 @@
 { pkgs, config, ... }:
 let
   leaderKey = "\\<Space>";
+  unstable = import
+    (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/d8fe5e6c92d0d190646fb9f1056741a229980089.tar.gz";
+      sha256 = "0jd6x1qaggxklah856zx86dxwy4j17swv4df52njcn3ln410bic8";
+    })
+    {
+      system = pkgs.system;
+    };
+  unstablePkgs = pkgs // { neovim = unstable.neovim-unwrapped; };
 in
 {
   home.file."./.config/nvim/" = {
@@ -11,19 +20,20 @@ in
     enable = true;
     viAlias = true;
     vimAlias = true;
+    package = unstable.neovim-unwrapped;
     extraConfig = ''
       	let mapleader = "${leaderKey}"
     '' +
     "${builtins.readFile ./init.vim}" +
     ''
       lua << EOF
-        local tsserver_path = "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server"
-        local typescript_path = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib"
-        local metals_binary_path = "${pkgs.metals}/bin/metals"
+        local tsserver_path = "${unstablePkgs.nodePackages.typescript-language-server}/bin/typescript-language-server"
+        local typescript_path = "${unstablePkgs.nodePackages.typescript}/lib/node_modules/typescript/lib"
+        local metals_binary_path = "${unstablePkgs.metals}/bin/metals"
         ${builtins.readFile ./init.lua}
       EOF
     '';
-    extraPackages = [
+    extraPackages = with unstablePkgs; [
       pkgs.nodePackages.typescript
       pkgs.nodePackages.typescript-language-server
       pkgs.nodePackages.bash-language-server
@@ -39,7 +49,7 @@ in
       pkgs.rust-analyzer
       pkgs.rustfmt
     ];
-    plugins = with pkgs.vimPlugins; [
+    plugins = with unstablePkgs.vimPlugins; [
       rec {
         plugin = catppuccin-nvim;
         config = ''
