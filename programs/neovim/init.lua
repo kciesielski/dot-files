@@ -193,7 +193,7 @@ require("copilot").setup({
     panel = { enabled = false }
 })
 require("copilot_cmp").setup()
--- require("CopilotChat").setup()
+require("CopilotChat").setup()
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         if #vim.fn.argv() == 0 then
@@ -222,3 +222,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
         end
     end,
 })
+map("n", "<leader>ccq", function()
+        local input = vim.fn.input("Ask Copilot: ")
+        if input ~= "" then
+            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+        end
+    end,
+    { desc = "CopilotChat - Quick chat" })
+map("n", "<leader>cp", "<cmd>CopilotChat<CR>", { desc = "Open Copilot Chat" })
