@@ -1,14 +1,25 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  unstable = import
+    (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/fd281bd6b7d3e32ddfa399853946f782553163b5.tar.gz";
+      sha256 = "0jd6x1qaggxklah856zx86dxwy4j17swv4df52njcn3ln410bic8";
+    })
+    {
+      system = pkgs.system;
+    };
+  unstablePkgs = pkgs // { neovim = unstable.neovim-unwrapped; };
+in
 {
   imports = [ ./bloop.nix ];
 
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     openjdk21
     scala
+    scala-cli
     ammonite
     scalafmt
     coursier
-    scala-cli
     sbt
   ];
 
