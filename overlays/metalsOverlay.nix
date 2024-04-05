@@ -4,6 +4,6 @@ let
 in
 metalsBuilder {
   # https://scalameta.org/metals/latests.json
-  version = "1.2.2+90-8e975366-SNAPSHOT";
-  outputHash = "sha256-70wBDhUbsXwmtAK0IBdy/UNhkBkRkP8N9mQIc7AkMpQ=";
+  version = "1.2.2+117-8cc7a42f-SNAPSHOT";
+  outputHash = "sha256-8Wh56XvOw6/Y7vXEYgKpBlidMbRA5krOw3iBRyfYG2w=";
 }
