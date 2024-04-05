@@ -11,11 +11,10 @@ let
   unstablePkgs = pkgs // { neovim = unstable.neovim-unwrapped; };
 in
 {
-  imports = [ ./bloop.nix ];
-
   home.packages = with unstable; [
     openjdk21
     scala
+    bloop
     scala-cli
     ammonite
     scalafmt
@@ -39,6 +38,13 @@ in
           version = "0.4.0";
         };
       in
-      [ projectGraph ];
+      [
+        projectGraph
+        {
+          org = "ch.epfl.scala";
+          artifact = "sbt-bloop";
+          inherit (unstable.bloop) version;
+        }
+      ];
   };
 }
