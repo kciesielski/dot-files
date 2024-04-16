@@ -3,7 +3,7 @@ let
   leaderKey = "\\<Space>";
   unstable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/d8fe5e6c92d0d190646fb9f1056741a229980089.tar.gz";
+      url = "https://github.com/NixOS/nixpkgs/archive/cfd6b5fc90b15709b780a5a1619695a88505a176.tar.gz";
       sha256 = "0jd6x1qaggxklah856zx86dxwy4j17swv4df52njcn3ln410bic8";
     })
     {
