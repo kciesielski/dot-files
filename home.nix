@@ -63,6 +63,7 @@
     ./programs/neovim
     ./programs/neofetch
     ./programs/git
+    ./programs/yazi
   ];
 
   home.packages = with pkgs; [
@@ -92,6 +93,7 @@
     tree # display tree structure of directory
     xsel # Operate on clipboard, 'cat file | xsel -b' and 'xsel -b'
     xsv # csv manipulation
+    # yazi - terminal file manager (yy to yank file, p to paste)
     ###
     flameshot # take screenshots in Gnome
     git-crypt # git files encryption
