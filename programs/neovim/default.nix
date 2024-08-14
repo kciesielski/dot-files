@@ -4,7 +4,7 @@ let
   unstable = import
     (fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/archive/cfd6b5fc90b15709b780a5a1619695a88505a176.tar.gz";
-      sha256 = "0jd6x1qaggxklah856zx86dxwy4j17swv4df52njcn3ln410bic8";
+      sha256 = "sha256:08yjq1miiy24j5jr4skma0ah4brjiswg6wzlas4dg582z05bvaaq";
     })
     {
       system = pkgs.system;

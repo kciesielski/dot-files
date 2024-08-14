@@ -50,7 +50,7 @@
       set-option -g renumber-windows on
 
       set-window-option -g xterm-keys on
-      bind-key r source-file ${config.xdg.configHome}/tmux/tmux.conf \; display-message "~/.tmux.conf reloaded"
+      # bind-key r source-file ${config.xdg.configHome}/tmux/tmux.conf \; display-message "~/.tmux.conf reloaded"
 
       # use \ and - for splitting panes
       unbind '%'

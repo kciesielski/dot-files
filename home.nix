@@ -1,8 +1,8 @@
 { pkgs, config, inputs, lib, ... }: {
 
 
-  targets.genericLinux.enable = true;
-  fonts.fontconfig.enable = true;
+  targets.genericLinux.enable = false;
+  # fonts.fontconfig.enable = true;
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   # home.username = "kc";
@@ -52,17 +52,12 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
-    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
   };
 
   imports = [
-    ./programs/scala
-    ./programs/alacritty
     ./programs/tmux
     ./programs/zsh
     ./programs/neovim
-    ./programs/neofetch
-    ./programs/git
     ./programs/yazi
   ];
 
@@ -95,28 +90,8 @@
     xsv # csv manipulation
     # yazi - terminal file manager (yy to yank file, p to paste)
     ###
-    flameshot # take screenshots in Gnome
-    git-crypt # git files encryption
-    gnome3.gnome-tweaks
-    gnomeExtensions.paperwm
     (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
-    jhiccup
-    nix-du
-    nix-index
-    nix-output-monitor
-    nix-prefetch
-    nix-tree
-    nixfmt
-    nixpkgs-review
-    nodejs
-    nurl
-    peek # recording gifs from desktop, gnome only?
-    rage # encryption tool for secrets management
-    statix # nix linter
     kubectl
-    youtube-dl
-    calibre
-    vscode
     yarn
   ];
 
@@ -138,50 +113,4 @@
     };
   };
 
-  dconf = {
-    enable = true;
-    settings = {
-      "org.gnome.desktop.input-sources" = {
-        show-all-sources = "false";
-        xkb-options = "['numpad:shift3', 'numpad:microsoft']";
-        per-window = "false";
-        current = "uint32 0";
-        mru-sources = "@a(ss) []";
-        sources = "[('xkb', 'pl')]";
-      };
-      "org/gnome/settings-daemon/plugins/media-keys" = {
-        custom-keybindings = [
-          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-        ];
-      };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
-        {
-          binding = "<Primary><Alt>f";
-          command = "alacritty";
-          name = "open-terminal";
-        };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
-        {
-          binding = "Print";
-          command = "flameshot gui";
-          name = "flameshot screenshot";
-        };
-    };
-  };
-
-  services.redshift = {
-    enable = true;
-    latitude = "52.2370";
-    longitude = "21.0175";
-    temperature.night = 3000;
-    temperature.day = 3000;
-  };
-
-  services.unclutter = {
-    enable = true;
-    extraOptions = [ "ignore-scrolling" ];
-  };
-
-  systemd.user.startServices = "sd-switch";
 }

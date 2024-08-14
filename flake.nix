@@ -87,8 +87,8 @@
 
   outputs = inputs @ { home-manager, nixpkgs, nixGL, ... }:
     let
-      system = "x86_64-linux";
-      username = "kc";
+      system = "x86_64-darwin";
+      username = "Krzysztof.Ciesielski";
 
       overlays = import ./overlays {
         inherit inputs;
@@ -115,7 +115,7 @@
           {
             home = {
               inherit username;
-              homeDirectory = "/home/${username}";
+              homeDirectory = "/Users/${username}";
               stateVersion = "23.11";
             };
           }
