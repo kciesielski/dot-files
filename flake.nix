@@ -4,10 +4,10 @@
   inputs =
     {
       nix.url = "github:nixos/nix/2.20-maintenance";
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
       home-manager = {
-        url = "github:nix-community/home-manager/release-23.11";
+        url = "github:nix-community/home-manager/release-24.11";
         inputs.nixpkgs.follows = "nixpkgs";
       };
       nixGL = {
@@ -87,7 +87,7 @@
 
   outputs = inputs @ { home-manager, nixpkgs, nixGL, ... }:
     let
-      system = "x86_64-darwin";
+      system = "aarch64-darwin";
       username = "Krzysztof.Ciesielski";
 
       overlays = import ./overlays {

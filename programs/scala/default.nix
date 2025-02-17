@@ -2,8 +2,8 @@
 let
   unstable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/43129fa7763313ada48a0a12fd951f3f49a03d3e.tar.gz";
-      sha256 = "0rgf6390c016nlyvp3kzalglzlr5p2blw3y7r67109jd4r6a7x9y";
+      url = "https://github.com/NixOS/nixpkgs/archive/3144f2d9767aab834e57757f7edba53235ae39d2.tar.gz";
+      sha256 = "0aw114hk7bxkm1k1fy5bi6widpkpwcly1aks9q3f3b1vgnykkqwm";
     })
     {
       system = pkgs.system;
@@ -14,7 +14,6 @@ in
   home.packages = with unstable; [
     openjdk21
     scala
-    bloop
     scala-cli
     ammonite
     scalafmt
@@ -23,7 +22,7 @@ in
   ];
 
   home.sessionVariables = {
-    JAVA_HOME = "${pkgs.openjdk21}";
+    JAVA_HOME = "${pkgs.openjdk11}";
     JVM_DEBUG =
       "-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005";
   };

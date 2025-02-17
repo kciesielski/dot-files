@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }: {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableVteIntegration = true;
     defaultKeymap = "emacs";

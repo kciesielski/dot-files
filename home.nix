@@ -55,6 +55,7 @@
   };
 
   imports = [
+    ./programs/scala
     ./programs/tmux
     ./programs/zsh
     ./programs/neovim
@@ -66,6 +67,7 @@
     ### CLI utils
     bat # better cat
     ctop # Like k9s but for Docker
+    devenv # nix wrapper for dev environments
     diff-so-fancy # pretty diffs
     dua # disk usage analyzer
     eza # a for of exa, better ls
@@ -80,7 +82,7 @@
     ouch # compression and decompression
     p7zip # compression/decompression with reliable password protection
     ripgrep # better grep, 'rg'
-    shell_gpt # ChatGPT CLI, 'sgpt'
+    #shell_gpt # ChatGPT CLI, 'sgpt'
     spotdl # download spotify tracks from YT 
     sysz # pretty interactive systemd viewer
     tig # nice git log with ASCII branches
@@ -93,6 +95,8 @@
     (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     kubectl
     yarn
+    maven
+    d2
   ];
 
   programs = {
